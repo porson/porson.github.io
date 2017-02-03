@@ -1,7 +1,7 @@
 ---
 title: Hello World
 date: 2017-02-03 21:19:43
-tag: Hexo
+tags: Hexo
 ---
 > 这是Hexo项目自带的`Hello world`，这次就不删除了。有兴趣的同学可以自己折腾一下，挺好玩儿的。我的博客现在的样式是魔改的NexT主题，国人制作，我做了一些小修改。
 
