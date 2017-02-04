@@ -337,47 +337,15 @@
 
       
         
-          
-            <h3 id="什么是Revel"><a href="#什么是Revel" class="headerlink" title="什么是Revel"></a>什么是Revel</h3><p>Revel官网给予的说明是：一个高生产力的 Go 语言 Web 框架。</p>
-<p>根据Web Framework Benchmarks测评显示，Revel目前性能排名第八的Web框架。注意，是<strong>全语言全框架</strong>性能排名第八。</p>
-<p><a href="http://www.techempower.com/benchmarks/#section=data-r8" target="_blank" rel="external">查看测试报告</a></p>
-<h3 id="Revel特性"><a href="#Revel特性" class="headerlink" title="Revel特性"></a>Revel特性</h3><h4 id="热编译"><a href="#热编译" class="headerlink" title="热编译"></a>热编译</h4><p>现在不能热编译的框架还叫框架？</p>
-<blockquote>
-<p>编辑, 保存, 和 刷新时，Revel自动编译代码和模板，如果代码编译错误，会给出一个 <a href="http://www.gorevel.cn/docs/img/CompilationError.png" target="_blank" rel="external">错误提示</a>，同时捕捉 <a href="http://www.gorevel.cn/docs/img/Panic.png" target="_blank" rel="external">运行期错误</a>。</p>
-</blockquote>
-<h4 id="全栈功能"><a href="#全栈功能" class="headerlink" title="全栈功能"></a>全栈功能</h4><p><del>特别适合我这种全栈工程师</del></p>
-<blockquote>
-<p>Revel 支持： <a href="http://www.gorevel.cn/docs/manual/routing.html" target="_blank" rel="external">路由</a>, <a href="http://www.gorevel.cn/docs/manual/binding.html" target="_blank" rel="external">参数解析</a>, <a href="http://www.gorevel.cn/docs/manual/validation.html" target="_blank" rel="external">验证</a>,<a href="http://www.gorevel.cn/docs/manual/sessionflash.html" target="_blank" rel="external">session/flash</a>, <a href="http://www.gorevel.cn/docs/manual/templates.html" target="_blank" rel="external">模板</a>, <a href="http://www.gorevel.cn/docs/manual/cache.html" target="_blank" rel="external">缓存</a>, <a href="http://www.gorevel.cn/docs/manual/jobs.html" target="_blank" rel="external">计划任务</a>, <a href="http://www.gorevel.cn/docs/manual/testing.html" target="_blank" rel="external">测试</a>, <a href="http://www.gorevel.cn/docs/manual/i18n-messages.html" target="_blank" rel="external">国际化</a> 等功能。</p>
-</blockquote>
-<h4 id="框架设计"><a href="#框架设计" class="headerlink" title="框架设计"></a>框架设计</h4><p>Revel秉持模块化无状态的同步设计，所以拓展性高，灵活性强。</p>
-<p>熟悉Python的同学肯定使用过Django，就我目前的开发感觉来看，转过来用的非常舒服，理解起来没有障碍。</p>
-<hr>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>说了这么多，到底怎么样使用呢？</p>
-<p>Go与其他语言不同，Go语言本身就集成了相当多的工具，所以无论是第三方包的下载还是安装，都是非常灵活方便的。<del>除了需要翻墙</del></p>
-<h4 id="一、科学上网"><a href="#一、科学上网" class="headerlink" title="一、科学上网"></a>一、科学上网</h4><p>是的，这是第一步，没有这一步你连包都下不全，有一部分的代码在google的服务器上。</p>
-<p>但是你要是说就是不想翻墙，或者就是不会怎么办？</p>
-<h4 id="二、第三方包下载工具"><a href="#二、第三方包下载工具" class="headerlink" title="二、第三方包下载工具"></a>二、第三方包下载工具</h4><p><a href="http://www.golangtc.com/download/package" target="_blank" rel="external">Golang中国第三方包下载工具</a></p>
-<p>上面的说明写的十分详细简单，我也就不赘述了。</p>
-<h4 id="三、开始安装"><a href="#三、开始安装" class="headerlink" title="三、开始安装"></a>三、开始安装</h4><p>安装Revel需要安装两个包</p>
-<ol>
-<li>github.com/revel/revel</li>
-<li>github.com/revel/cmd/revel</li>
-</ol>
-<p>第一个是Revel本体，第二个是命令行工具。</p>
-<p>不过这两个包只有第一个需要翻墙。</p>
-<hr>
-<p>在第三方包下载工具当中输入包名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">github.com/revel/revel</div></pre></td></tr></table></figure>
-<p>然后等工具下载完后下载到本地，解压所有文件到你的GOPATH路径下的src目录下。</p>
-<p>然后在命令行中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go install github.com/revel/revel</div></pre></td></tr></table></figure>
-<p>等待成功后就可以安装命令行工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get github.com/revel/cmd/revel</div></pre></td></tr></table></figure>
-<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>接下来就是按照官网上的指示创建Revel应用即可。</p>
-<p>非常简单，初学者可能会卡在科学上网上。</p>
-<p><a href="http://www.gorevel.cn/" target="_blank" rel="external">Revel中文站</a></p>
-
-          
+          <p>毕业设计为了给自己点压力就提交了一个用go语言做的题目，然后很顺利的通过了。导师很欣慰的跟我说：“孩子你真不错，好好做，努力加油。”</p>
+<p>这个项目答辩后会开源在我的Github上，如果有兴趣的同学大家可以拿来练练手。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/04/Go语言Web框架Revel的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
