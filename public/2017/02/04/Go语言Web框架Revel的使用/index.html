@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客通知," />
+  <meta name="keywords" content="Golang," />
 
 
 
@@ -84,19 +84,31 @@
 
 
 
-<meta name="description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
+<meta name="description" content="什么是RevelRevel官网给予的说明是：一个高生产力的 Go 语言 Web 框架。
+根据Web Framework Benchmarks测评显示，Revel目前性能排名第八的Web框架。注意，是全语言全框架性能排名第八。
+查看测试报告
+Revel特性热编译现在不能热编译的框架还叫框架？
+
+编辑, 保存, 和 刷新时，Revel自动编译代码和模板，如果代码编译错误，会给出一个 错误提示，同时捕捉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="抱歉，我又把我的博客拆了">
-<meta property="og:url" content="/2017/02/04/抱歉，我又把我的博客拆了/index.html">
+<meta property="og:title" content="Go语言Web框架Revel初体验">
+<meta property="og:url" content="/2017/02/04/Go语言Web框架Revel的使用/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
-<meta property="og:updated_time" content="2017-02-03T17:34:33.238Z">
+<meta property="og:description" content="什么是RevelRevel官网给予的说明是：一个高生产力的 Go 语言 Web 框架。
+根据Web Framework Benchmarks测评显示，Revel目前性能排名第八的Web框架。注意，是全语言全框架性能排名第八。
+查看测试报告
+Revel特性热编译现在不能热编译的框架还叫框架？
+
+编辑, 保存, 和 刷新时，Revel自动编译代码和模板，如果代码编译错误，会给出一个 错误提示，同时捕捉">
+<meta property="og:updated_time" content="2017-02-04T09:34:15.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="抱歉，我又把我的博客拆了">
-<meta name="twitter:description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
+<meta name="twitter:title" content="Go语言Web框架Revel初体验">
+<meta name="twitter:description" content="什么是RevelRevel官网给予的说明是：一个高生产力的 Go 语言 Web 框架。
+根据Web Framework Benchmarks测评显示，Revel目前性能排名第八的Web框架。注意，是全语言全框架性能排名第八。
+查看测试报告
+Revel特性热编译现在不能热编译的框架还叫框架？
+
+编辑, 保存, 和 刷新时，Revel自动编译代码和模板，如果代码编译错误，会给出一个 错误提示，同时捕捉">
 
 
 
@@ -124,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="/2017/02/04/抱歉，我又把我的博客拆了/"/>
+  <link rel="canonical" href="/2017/02/04/Go语言Web框架Revel的使用/"/>
 
 
 
 
 
-  <title> 抱歉，我又把我的博客拆了 | Porson's Bolg </title>
+  <title> Go语言Web框架Revel初体验 | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/02/04/抱歉，我又把我的博客拆了/">
+  <link itemprop="mainEntityOfPage" href="/2017/02/04/Go语言Web框架Revel的使用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -284,7 +296,7 @@
             
             
               
-                抱歉，我又把我的博客拆了
+                Go语言Web框架Revel初体验
               
             
           </h1>
@@ -299,7 +311,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T01:19:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T17:01:30+08:00">
                 2017-02-04
               </time>
             
@@ -335,14 +347,44 @@
       
 
       
-        <p>这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。</p>
-<h3 id="原因说明"><a href="#原因说明" class="headerlink" title="原因说明"></a>原因说明</h3><p>其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接修改HTML页面来传文章。<br>写起来非常困难不说，手动改格式排版什么的也非常的难看。再加上之前自己一个人负责一个比较大的项目，我的内心实际上是崩溃的。</p>
-<h3 id="目前状态"><a href="#目前状态" class="headerlink" title="目前状态"></a>目前状态</h3><p>首先是两个情况：</p>
+        <h3 id="什么是Revel"><a href="#什么是Revel" class="headerlink" title="什么是Revel"></a>什么是Revel</h3><p>Revel官网给予的说明是：一个高生产力的 Go 语言 Web 框架。</p>
+<p>根据Web Framework Benchmarks测评显示，Revel目前性能排名第八的Web框架。注意，是<strong>全语言全框架</strong>性能排名第八。</p>
+<p><a href="http://www.techempower.com/benchmarks/#section=data-r8" target="_blank" rel="external">查看测试报告</a></p>
+<h3 id="Revel特性"><a href="#Revel特性" class="headerlink" title="Revel特性"></a>Revel特性</h3><h4 id="热编译"><a href="#热编译" class="headerlink" title="热编译"></a>热编译</h4><p>现在不能热编译的框架还叫框架？</p>
+<blockquote>
+<p>编辑, 保存, 和 刷新时，Revel自动编译代码和模板，如果代码编译错误，会给出一个 <a href="http://www.gorevel.cn/docs/img/CompilationError.png" target="_blank" rel="external">错误提示</a>，同时捕捉 <a href="http://www.gorevel.cn/docs/img/Panic.png" target="_blank" rel="external">运行期错误</a>。</p>
+</blockquote>
+<h4 id="全栈功能"><a href="#全栈功能" class="headerlink" title="全栈功能"></a>全栈功能</h4><p><del>特别适合我这种全栈工程师</del></p>
+<blockquote>
+<p>Revel 支持： <a href="http://www.gorevel.cn/docs/manual/routing.html" target="_blank" rel="external">路由</a>, <a href="http://www.gorevel.cn/docs/manual/binding.html" target="_blank" rel="external">参数解析</a>, <a href="http://www.gorevel.cn/docs/manual/validation.html" target="_blank" rel="external">验证</a>,<a href="http://www.gorevel.cn/docs/manual/sessionflash.html" target="_blank" rel="external">session/flash</a>, <a href="http://www.gorevel.cn/docs/manual/templates.html" target="_blank" rel="external">模板</a>, <a href="http://www.gorevel.cn/docs/manual/cache.html" target="_blank" rel="external">缓存</a>, <a href="http://www.gorevel.cn/docs/manual/jobs.html" target="_blank" rel="external">计划任务</a>, <a href="http://www.gorevel.cn/docs/manual/testing.html" target="_blank" rel="external">测试</a>, <a href="http://www.gorevel.cn/docs/manual/i18n-messages.html" target="_blank" rel="external">国际化</a> 等功能。</p>
+</blockquote>
+<h4 id="框架设计"><a href="#框架设计" class="headerlink" title="框架设计"></a>框架设计</h4><p>Revel秉持模块化无状态的同步设计，所以拓展性高，灵活性强。</p>
+<p>熟悉Python的同学肯定使用过Django，就我目前的开发感觉来看，转过来用的非常舒服，理解起来没有障碍。</p>
+<hr>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>说了这么多，到底怎么样使用呢？</p>
+<p>Go与其他语言不同，Go语言本身就集成了相当多的工具，所以无论是第三方包的下载还是安装，都是非常灵活方便的。<del>除了需要翻墙</del></p>
+<h4 id="一、科学上网"><a href="#一、科学上网" class="headerlink" title="一、科学上网"></a>一、科学上网</h4><p>是的，这是第一步，没有这一步你连包都下不全，有一部分的代码在google的服务器上。</p>
+<p>但是你要是说就是不想翻墙，或者就是不会怎么办？</p>
+<h4 id="二、第三方包下载工具"><a href="#二、第三方包下载工具" class="headerlink" title="二、第三方包下载工具"></a>二、第三方包下载工具</h4><p><a href="http://www.golangtc.com/download/package" target="_blank" rel="external">Golang中国第三方包下载工具</a></p>
+<p>上面的说明写的十分详细简单，我也就不赘述了。</p>
+<h4 id="三、开始安装"><a href="#三、开始安装" class="headerlink" title="三、开始安装"></a>三、开始安装</h4><p>安装Revel需要安装两个包</p>
 <ol>
-<li>之前的文章有保存备份，但是第一次崩溃的备份由于没有还原，可能都丢了。我还没有查我的移动硬盘，不过估计恢复的可能性不大。</li>
-<li>新年新气象。丁酉年离职，所以现在有更多的时间来积累。接下来MySQL的东西可能会更新的比较少，主要关注点在Python和Go这两个方向。博客内容也基本以开发为主。</li>
+<li>github.com/revel/revel</li>
+<li>github.com/revel/cmd/revel</li>
 </ol>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>感谢大(zi)家(ji)去年的支持与鼓励。</p>
+<p>第一个是Revel本体，第二个是命令行工具。</p>
+<p>不过这两个包只有第一个需要翻墙。</p>
+<hr>
+<p>在第三方包下载工具当中输入包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">github.com/revel/revel</div></pre></td></tr></table></figure>
+<p>然后等工具下载完后下载到本地，解压所有文件到你的GOPATH路径下的src目录下。</p>
+<p>然后在命令行中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go install github.com/revel/revel</div></pre></td></tr></table></figure>
+<p>等待成功后就可以安装命令行工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get github.com/revel/cmd/revel</div></pre></td></tr></table></figure>
+<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>接下来就是按照官网上的指示创建Revel应用即可。</p>
+<p>非常简单，初学者可能会卡在科学上网上。</p>
+<p><a href="http://www.gorevel.cn/" target="_blank" rel="external">Revel中文站</a></p>
 
       
     </div>
@@ -366,7 +408,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客通知/" rel="tag"># 博客通知</a>
+            <a href="/tags/Golang/" rel="tag"># Golang</a>
           
         </div>
       
@@ -375,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/02/04/文件编码自动转换模块的实现/" rel="next" title="Python文件编码自动转换模块的实现">
+                <i class="fa fa-chevron-left"></i> Python文件编码自动转换模块的实现
               </a>
             
           </div>
@@ -384,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/04/Python-常用加密方法/" rel="prev" title="Python字符串加密实现">
-                Python字符串加密实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原因说明"><span class="nav-number">1.</span> <span class="nav-text">原因说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目前状态"><span class="nav-number">2.</span> <span class="nav-text">目前状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Revel"><span class="nav-number">1.</span> <span class="nav-text">什么是Revel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Revel特性"><span class="nav-number">2.</span> <span class="nav-text">Revel特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#热编译"><span class="nav-number">2.1.</span> <span class="nav-text">热编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全栈功能"><span class="nav-number">2.2.</span> <span class="nav-text">全栈功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架设计"><span class="nav-number">2.3.</span> <span class="nav-text">框架设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、科学上网"><span class="nav-number">3.1.</span> <span class="nav-text">一、科学上网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、第三方包下载工具"><span class="nav-number">3.2.</span> <span class="nav-text">二、第三方包下载工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、开始安装"><span class="nav-number">3.3.</span> <span class="nav-text">三、开始安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成"><span class="nav-number">4.</span> <span class="nav-text">完成</span></a></li></ol></div>
             
 
           </div>
