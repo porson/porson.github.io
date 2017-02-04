@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。一下是整理的笔记以及总结的一些方法论。">
+<meta name="description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。以下是整理的笔记以及总结的一些方法论。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Python]字符处理-加密">
 <meta property="og:url" content="/2017/02/04/Python-常用加密方法/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。一下是整理的笔记以及总结的一些方法论。">
-<meta property="og:updated_time" content="2017-02-04T02:32:40.327Z">
+<meta property="og:description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。以下是整理的笔记以及总结的一些方法论。">
+<meta property="og:updated_time" content="2017-02-04T02:38:56.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Python]字符处理-加密">
-<meta name="twitter:description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。一下是整理的笔记以及总结的一些方法论。">
+<meta name="twitter:description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。以下是整理的笔记以及总结的一些方法论。">
 
 
 
@@ -332,7 +332,9 @@
       
 
       
-        <p>之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。<br>一下是整理的笔记以及总结的一些方法论。<br><a id="more"></a></p>
+        <blockquote>
+<p>之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。<br>以下是整理的笔记以及总结的一些方法论。<br><a id="more"></a></p>
+</blockquote>
 <h3 id="字符串加密基本思路"><a href="#字符串加密基本思路" class="headerlink" title="字符串加密基本思路"></a>字符串加密基本思路</h3><h4 id="可逆加密"><a href="#可逆加密" class="headerlink" title="可逆加密"></a>可逆加密</h4><blockquote>
 <p>可还原加密是指对加密后生成的字符串进行解密，可以得到原字符串。</p>
 </blockquote>
