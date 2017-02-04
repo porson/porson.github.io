@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客通知," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
+<meta name="description" content="这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。虽然我现在还是放弃了windos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="抱歉，我又把我的博客拆了">
-<meta property="og:url" content="/2017/02/04/抱歉，我又把我的博客拆了/index.html">
+<meta property="og:title" content="解决Python在Windows环境运行时的编码问题">
+<meta property="og:url" content="/2017/02/04/解决Python在Windows环境运行时的编码问题/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
-<meta property="og:updated_time" content="2017-02-03T17:34:33.238Z">
+<meta property="og:description" content="这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。虽然我现在还是放弃了windos">
+<meta property="og:updated_time" content="2017-02-04T10:46:07.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="抱歉，我又把我的博客拆了">
-<meta name="twitter:description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
+<meta name="twitter:title" content="解决Python在Windows环境运行时的编码问题">
+<meta name="twitter:description" content="这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。虽然我现在还是放弃了windos">
 
 
 
@@ -124,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="/2017/02/04/抱歉，我又把我的博客拆了/"/>
+  <link rel="canonical" href="/2017/02/04/解决Python在Windows环境运行时的编码问题/"/>
 
 
 
 
 
-  <title> 抱歉，我又把我的博客拆了 | Porson's Bolg </title>
+  <title> 解决Python在Windows环境运行时的编码问题 | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/02/04/抱歉，我又把我的博客拆了/">
+  <link itemprop="mainEntityOfPage" href="/2017/02/04/解决Python在Windows环境运行时的编码问题/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -284,7 +281,7 @@
             
             
               
-                抱歉，我又把我的博客拆了
+                解决Python在Windows环境运行时的编码问题
               
             
           </h1>
@@ -299,7 +296,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T01:19:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T18:22:51+08:00">
                 2017-02-04
               </time>
             
@@ -318,8 +315,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/04/抱歉，我又把我的博客拆了/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/抱歉，我又把我的博客拆了/" itemprop="commentCount"></span>
+                <a href="/2017/02/04/解决Python在Windows环境运行时的编码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/解决Python在Windows环境运行时的编码问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,14 +342,36 @@
       
 
       
-        <p>这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。</p>
-<h3 id="原因说明"><a href="#原因说明" class="headerlink" title="原因说明"></a>原因说明</h3><p>其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接修改HTML页面来传文章。<br>写起来非常困难不说，手动改格式排版什么的也非常的难看。再加上之前自己一个人负责一个比较大的项目，我的内心实际上是崩溃的。</p>
-<h3 id="目前状态"><a href="#目前状态" class="headerlink" title="目前状态"></a>目前状态</h3><p>首先是两个情况：</p>
+        <p>这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。<del>虽然我现在还是放弃了windos</del></p>
+<a id="more"></a>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>Windows 10</li>
+<li>Python 2.7</li>
+</ul>
+<h3 id="调教过程"><a href="#调教过程" class="headerlink" title="调教过程"></a>调教过程</h3><p>良好的开发环境就跟样儿子一样，从出生的时候就是要开始好好调教了。</p>
+<p>总结了以下以前在Windows环境下进行Python开发的时候常见体验不好的地方：</p>
 <ol>
-<li>之前的文章有保存备份，但是第一次崩溃的备份由于没有还原，可能都丢了。我还没有查我的移动硬盘，不过估计恢复的可能性不大。</li>
-<li>新年新气象。丁酉年离职，所以现在有更多的时间来积累。接下来MySQL的东西可能会更新的比较少，主要关注点在Python和Go这两个方向。博客内容也基本以开发为主。</li>
+<li>汉字乱码</li>
+<li>Django莫名其妙报错</li>
+<li>安装第三方包困难</li>
+<li>…</li>
 </ol>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>感谢大(zi)家(ji)去年的支持与鼓励。</p>
+<p>基本上这些问题可以分为两大类：</p>
+<ol>
+<li>权限问题</li>
+<li>编码问题</li>
+</ol>
+<h4 id="权限问题解决"><a href="#权限问题解决" class="headerlink" title="权限问题解决"></a>权限问题解决</h4><p>在使用命令行（cmd）安装东西的时候，一定要使用管理员身份打开cmd。</p>
+<p>负责安装上也会由于各种问题无法正常运行（例如Django）</p>
+<h4 id="编码问题解决"><a href="#编码问题解决" class="headerlink" title="编码问题解决"></a>编码问题解决</h4><p>编码问题解决有两种办法：</p>
+<p>一个解决的方案在程序中加入以下代码： Python代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys  </div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure>
+<p>另一个方案是我大力推荐，一劳永逸的办法：</p>
+<p>在python的<code>Lib\site-packages</code>文件夹下新建一个<code>sitecustomize.py</code>，内容为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># encoding=utf8  </span></div><div class="line"><span class="keyword">import</span> sys  </div><div class="line">  </div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure>
+<p>此时重启python解释器，执行sys.getdefaultencoding()，发现编码已经被设置为utf8的了，多次重启之后，效果相同，这是因为系统在python启动的时候，自行调用该文件，设置系统的默认编码，而不需要每次都手动的加上解决代码。</p>
+<hr>
+<p>只要按照上面的方法进行设置，Windows环境下Python开发感受会提升非常的大。</p>
 
       
     </div>
@@ -376,7 +395,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客通知/" rel="tag"># 博客通知</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -385,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/02/04/Go语言Web框架Revel的使用/" rel="next" title="Go语言Web框架Revel初体验">
+                <i class="fa fa-chevron-left"></i> Go语言Web框架Revel初体验
               </a>
             
           </div>
@@ -394,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/04/Python-常用加密方法/" rel="prev" title="Python字符串加密实现">
-                Python字符串加密实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -423,8 +438,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/04/抱歉，我又把我的博客拆了/"
-           data-title="抱歉，我又把我的博客拆了" data-url="/2017/02/04/抱歉，我又把我的博客拆了/">
+      <div class="ds-thread" data-thread-key="2017/02/04/解决Python在Windows环境运行时的编码问题/"
+           data-title="解决Python在Windows环境运行时的编码问题" data-url="/2017/02/04/解决Python在Windows环境运行时的编码问题/">
       </div>
     
   </div>
@@ -534,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原因说明"><span class="nav-number">1.</span> <span class="nav-text">原因说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目前状态"><span class="nav-number">2.</span> <span class="nav-text">目前状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调教过程"><span class="nav-number">2.</span> <span class="nav-text">调教过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权限问题解决"><span class="nav-number">2.1.</span> <span class="nav-text">权限问题解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编码问题解决"><span class="nav-number">2.2.</span> <span class="nav-text">编码问题解决</span></a></li></ol></li></ol></div>
             
 
           </div>
