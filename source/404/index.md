@@ -1,5 +1,5 @@
 ---
-title: 404
+title: ERROR 404
 date: 2017-02-04 01:14:51
 type: 404
 ---

@@ -86,13 +86,13 @@
 
 <meta name="description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。以下是整理的笔记以及总结的一些方法论。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Python]字符处理-加密">
+<meta property="og:title" content="Python字符串加密实现">
 <meta property="og:url" content="/2017/02/04/Python-常用加密方法/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
 <meta property="og:description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。以下是整理的笔记以及总结的一些方法论。">
-<meta property="og:updated_time" content="2017-02-04T02:38:56.478Z">
+<meta property="og:updated_time" content="2017-02-04T03:13:14.958Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Python]字符处理-加密">
+<meta name="twitter:title" content="Python字符串加密实现">
 <meta name="twitter:description" content="之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。以下是整理的笔记以及总结的一些方法论。">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title> [Python]字符处理-加密 | Porson's Bolg </title>
+  <title> Python字符串加密实现 | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +281,7 @@
             
             
               
-                [Python]字符处理-加密
+                Python字符串加密实现
               
             
           </h1>
@@ -332,46 +332,37 @@
       
 
       
-        <blockquote>
-<p>之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。<br>以下是整理的笔记以及总结的一些方法论。<br><a id="more"></a></p>
+        <blockquote class="blockquote-center"><p>之前负责的一个项目是针对公司测试、实验环境提供一套共用的脚本审核发布系统，其中涉及到了自定义数据库与发布帐号的注册。由于是共用系统，为了账户信息的安全，对敏感字段进行了加密处理。<br>以下是整理的笔记以及总结的一些方法论。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="字符串加密基本思路"><a href="#字符串加密基本思路" class="headerlink" title="字符串加密基本思路"></a>字符串加密基本思路</h3><h4 id="可逆加密"><a href="#可逆加密" class="headerlink" title="可逆加密"></a>可逆加密</h4><blockquote>
 <p>可还原加密是指对加密后生成的字符串进行解密，可以得到原字符串。</p>
 </blockquote>
 <p>这种加密的实现方法有很多种，平时使用较多的一个是采用base64模块，再就是自己写加密算法实现。</p>
-<ul>
-<li>Base64<blockquote>
-<p>Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一。<br>Base64就是利用a-z，A-Z，0-9外加’+’和’/‘（最后两个特殊符号会根据不同的Base64变种而有所不同）这总共64个字符对原字符串进行处理替换，来达到对使原字符串不可见的效果。<br>但是这种加密算法非常简单，是可逆的，安全性很低。<br>Base64算法的简单规则如下：</p>
+<h5 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h5><blockquote>
+<p>Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一。</p>
+</blockquote>
+<p>Base64就是利用a-z，A-Z，0-9外加’+’和’/‘（最后两个特殊符号会根据不同的Base64变种而有所不同）这总共64个字符对原字符串进行处理替换，来达到对使原字符串不可见的效果。<br>但是这种加密算法非常简单，是可逆的，安全性很低。<br>Base64算法的简单规则如下：</p>
 <ol>
 <li>把3个字符变成4个字符。</li>
 <li>每76个字符加一个换行符。</li>
 <li>最后的结束符也要处理。</li>
 </ol>
-</blockquote>
-</li>
-</ul>
-<p><a href="http://baike.baidu.com/link?url=E8-vj9CcIckBaSvpw_Sx-9Y7RhpXBR1hctrI9hiGgdQ6YAwuXE0U_jPLsOoLatdlgxNecox6_CYoiUHixX5P0q" target="_blank" rel="external">点击我查看更多Base64具体内容</a></p>
-<ul>
-<li>自定义加密算法<br>通过自己设计的加密规则对字符串进行处理，来达到字符串不可见的效果。<br>这个方法的安全性在于加密算法的保密性。<h4 id="不可逆加密"><a href="#不可逆加密" class="headerlink" title="不可逆加密"></a>不可逆加密</h4></li>
-<li>摘要算法<br>常见的’MD5’、’SHA1’这些加密就是摘要算法加密。（就是哈希算法）<blockquote>
+<p><a href="http://baike.baidu.com/link?url=E8-vj9CcIckBaSvpw_Sx-9Y7RhpXBR1hctrI9hiGgdQ6YAwuXE0U_jPLsOoLatdlgxNecox6_CYoiUHixX5P0q" target="_blank" rel="external">点击我查看更多Base64</a></p>
+<h5 id="自定义加密算法"><a href="#自定义加密算法" class="headerlink" title="自定义加密算法"></a>自定义加密算法</h5><p>通过自己设计的加密规则对字符串进行处理，来达到字符串不可见的效果。<br>这个方法的安全性在于加密算法的保密性。</p>
+<h4 id="不可逆加密"><a href="#不可逆加密" class="headerlink" title="不可逆加密"></a>不可逆加密</h4><h5 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h5><p>常见的’MD5’、’SHA1’这些加密就是摘要算法加密。（就是哈希算法）</p>
+<blockquote>
 <p>其实摘要算法不是加密算法，无法通过摘要反推明文，只能用于防篡改，但是它的单向计算特性决定了可以在不存储明文口令的情况下验证用户口令。</p>
 </blockquote>
-</li>
-</ul>
 <p>摘要算法最长用在文件完整性校验，密码验证等不需要反推只需要对比的场景下。<br>所以，为什么QQ密码只能重置不能找回。所以，付费MD5解密都是骗人的。</p>
 <hr>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><h4 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> base64</div><div class="line"></div><div class="line">s1 = base64.encodestring(<span class="string">'hello world'</span>)</div><div class="line">s2 = base64.decodestring(s1)</div><div class="line"><span class="keyword">print</span> s1, s2</div></pre></td></tr></table></figure>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><h4 id="Base64-1"><a href="#Base64-1" class="headerlink" title="Base64"></a>Base64</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> base64</div><div class="line"></div><div class="line">s1 = base64.encodestring(<span class="string">'hello world'</span>)</div><div class="line">s2 = base64.decodestring(s1)</div><div class="line"><span class="keyword">print</span> s1, s2</div></pre></td></tr></table></figure>
 <p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">aGVsbG8gd29ybGQ=</div><div class="line">hello world</div></pre></td></tr></table></figure></p>
-<h4 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h4><h5 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> hashlib</div><div class="line"></div><div class="line">test_string = <span class="string">'123456'</span></div><div class="line"></div><div class="line">md5 = hashlib.md5()</div><div class="line">md5.update(test_string.encode(<span class="string">'utf-8'</span>))</div><div class="line">md5_encode = md5.hexdigest()</div><div class="line">print(md5_encode)</div><div class="line"></div><div class="line">sha1 = hashlib.sha1()</div><div class="line">sha1.update(test_string.encode(<span class="string">'utf-8'</span>))</div><div class="line">sha1_encode = sha1.hexdigest()</div><div class="line">print(sha1_encode)</div></pre></td></tr></table></figure>
+<h4 id="摘要算法-1"><a href="#摘要算法-1" class="headerlink" title="摘要算法"></a>摘要算法</h4><h5 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> hashlib</div><div class="line"></div><div class="line">test_string = <span class="string">'123456'</span></div><div class="line"></div><div class="line">md5 = hashlib.md5()</div><div class="line">md5.update(test_string.encode(<span class="string">'utf-8'</span>))</div><div class="line">md5_encode = md5.hexdigest()</div><div class="line">print(md5_encode)</div><div class="line"></div><div class="line">sha1 = hashlib.sha1()</div><div class="line">sha1.update(test_string.encode(<span class="string">'utf-8'</span>))</div><div class="line">sha1_encode = sha1.hexdigest()</div><div class="line">print(sha1_encode)</div></pre></td></tr></table></figure>
 <p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">e10adc3949ba59abbe56e057f20f883e </div><div class="line">7c4a8d09ca3762af61e59520943dc26494f8941b</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>多次追加</p>
+<p>多次追加</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">md5 = hashlib.md5()</div><div class="line">md5.update(<span class="string">'how to use md5 in '</span>)</div><div class="line">md5.update(<span class="string">'python hashlib?'</span>)</div><div class="line"><span class="keyword">print</span> md5.hexdigest()</div></pre></td></tr></table></figure>
-</li>
-<li><p>加盐</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法1（固定盐）</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_md5</span><span class="params">(password)</span>:</span></div><div class="line">    <span class="keyword">return</span> get_md5(password + <span class="string">'the-Salt'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 方法2（用户名盐）</span></div><div class="line">db = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">register</span><span class="params">(username, password)</span>:</span></div><div class="line">    db[username] = get_md5(password + username + <span class="string">'the-Salt'</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>加盐<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法1（固定盐）</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_md5</span><span class="params">(password)</span>:</span></div><div class="line">    <span class="keyword">return</span> get_md5(password + <span class="string">'the-Salt'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 方法2（用户名盐）</span></div><div class="line">db = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">register</span><span class="params">(username, password)</span>:</span></div><div class="line">    db[username] = get_md5(password + username + <span class="string">'the-Salt'</span>)</div></pre></td></tr></table></figure></p>
 <h5 id="SHA1"><a href="#SHA1" class="headerlink" title="SHA1"></a>SHA1</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> hashlib</div><div class="line"></div><div class="line">sha1 = hashlib.sha1()</div><div class="line">sha1.update(<span class="string">'how to use sha1 in '</span>)</div><div class="line">sha1.update(<span class="string">'python hashlib?'</span>)</div><div class="line"><span class="keyword">print</span> sha1.hexdigest()</div></pre></td></tr></table></figure>
 <p>SHA1的结果是160 bit字节，通常用一个40位的16进制字符串表示。</p>
 <p>比SHA1更安全的算法是SHA256和SHA512，不过越安全的算法越慢，而且摘要长度更长。</p>
@@ -417,6 +408,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/04/文件编码自动转换模块的实现/" rel="prev" title="Python文件编码自动转换模块的实现">
+                Python文件编码自动转换模块的实现 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -486,7 +481,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -549,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串加密基本思路"><span class="nav-number">1.</span> <span class="nav-text">字符串加密基本思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可逆加密"><span class="nav-number">1.1.</span> <span class="nav-text">可逆加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不可逆加密"><span class="nav-number">1.2.</span> <span class="nav-text">不可逆加密</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例代码"><span class="nav-number">2.</span> <span class="nav-text">示例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base64"><span class="nav-number">2.1.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要算法"><span class="nav-number">2.2.</span> <span class="nav-text">摘要算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MD5"><span class="nav-number">2.2.1.</span> <span class="nav-text">MD5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SHA1"><span class="nav-number">2.2.2.</span> <span class="nav-text">SHA1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串加密基本思路"><span class="nav-number">1.</span> <span class="nav-text">字符串加密基本思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可逆加密"><span class="nav-number">1.1.</span> <span class="nav-text">可逆加密</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Base64"><span class="nav-number">1.1.1.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义加密算法"><span class="nav-number">1.1.2.</span> <span class="nav-text">自定义加密算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不可逆加密"><span class="nav-number">1.2.</span> <span class="nav-text">不可逆加密</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#摘要算法"><span class="nav-number">1.2.1.</span> <span class="nav-text">摘要算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例代码"><span class="nav-number">2.</span> <span class="nav-text">示例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base64-1"><span class="nav-number">2.1.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要算法-1"><span class="nav-number">2.2.</span> <span class="nav-text">摘要算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MD5"><span class="nav-number">2.2.1.</span> <span class="nav-text">MD5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SHA1"><span class="nav-number">2.2.2.</span> <span class="nav-text">SHA1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
