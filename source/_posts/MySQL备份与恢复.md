@@ -2,14 +2,12 @@
 title: MySQL备份与恢复
 date: 2016-11-15 19:17:06
 tags: MySQL
-categories: 数据库学习
-description: <center>MySQL备份与恢复方法实践与总结</center>
 ---
 ## 声明
 >本文整理自好友分享文档。
 
 >原作者：王绍晖
-个人简介：腾云天下实习DBA
+>个人简介：腾云天下实习DBA
 
 
 ## binlog的解读
@@ -34,10 +32,10 @@ Query	thread_id=21	exec_time=0	error_code=0
 - 数据库重启会出现切换的情况
 - binlog强行切换：
 
-`mysql> flush logs;`		
+  `mysql> flush logs;`	
 
 > 查看在使用的哪个日志，可以ls -t看时间
- 
+
 ## 关于日志的截取：
 - binlog的恢复：
 ```
@@ -84,10 +82,10 @@ options：
 ```
 
 - 备份一张表：
-`mysqldump -uroot -p -l -F --single-transaction -S /usr/local/mysql/data/mysql.sock test t1 >aa.sql`
+  `mysqldump -uroot -p -l -F --single-transaction -S /usr/local/mysql/data/mysql.sock test t1 >aa.sql`
 
 - 恢复一张表：
-`cat aa.sql | mysql -uroot -p123123 -S /usr/local/mysql/data/mysql.sock test`
+  `cat aa.sql | mysql -uroot -p123123 -S /usr/local/mysql/data/mysql.sock test`
 
 ### 关注的点：
 > 备份出来的数据对应的binlog的日志起点
@@ -151,7 +149,7 @@ backup_type = full-prepared		#不仅是全备而且apply log了
 ```
 
 - 关闭数据库，删除数据库（注意：一定不要删除binlog）
-将binlog从里面移出来，注意不要放到backup下面，否则一会恢复的时候binlog页都给恢复了，这个是不需要的。
+  将binlog从里面移出来，注意不要放到backup下面，否则一会恢复的时候binlog页都给恢复了，这个是不需要的。
 
 
 - 恢复数据库：就是把backup下面的文件再拷贝回去
@@ -162,8 +160,8 @@ backup_type = full-prepared		#不仅是全备而且apply log了
 - 文件拷贝完成记得一定要修改datadir下面文件的属主和属组，重启数据库
 
 - 跑binlog：
-起始位置以及哪个binlog：xtrabackup_info 	记录在这个文件里
-终点位置需要我们自己去找：mysqlbinlog -vv mysqlserver.000023 | grep -i "drop" -C 100			
+  起始位置以及哪个binlog：xtrabackup_info 记录在这个文件里
+  终点位置需要我们自己去找：mysqlbinlog -vv mysqlserver.000023 | grep -i "drop" -C 100		
 ```
 [root@localhost binlog]# cat a.sql | mysql -uroot -p -S /usr/local/mysql/data/mysql.sock 
 Enter password: 
@@ -179,8 +177,8 @@ Enter password:
 4. 确认一下errorlog，pid文件，sock文件，
 5. mysql_safe --defaults-file=/etc/my.cnf  &
 6. ps -ef | grep mysqld
-7. tail -100f 	errorlog
-8. 登陆mysql -uroot -p -h127.0.0.1 或者mysql -uroot -p -S /.../...sock
+   7. tail -100f errorlog
+7. 登陆mysql -uroot -p -h127.0.0.1 或者mysql -uroot -p -S /.../...sock
 
 
 ## 备份方案：
@@ -188,9 +186,9 @@ Enter password:
 2. 将备份的文件传走(传到从库)：对IO和网络带宽产生负载
 3. 恢复的时间：恢复的时候，binlog跑得特别慢，生产做业务的时候是并发执行的，恢复的时候只有一个线程在跑
 
-- 需要考虑的点：	
-1. 备份对生产的影响,备份和数据传输
-2. 备份的恢复时间
+   - 需要考虑的点：
+4. 备份对生产的影响,备份和数据传输
+5. 备份的恢复时间
 
 ### 对于恢复的时间的计算
 > 恢复时间=备份拷贝回来的时间（IO和网络带宽）+跑binlog的时间（不太容易计算，需要实际测试）
@@ -229,7 +227,7 @@ Enter password:
 ```
 
 - 跑binlog
-起点在xtrbackup_binlog_info里面找
+  起点在xtrbackup_binlog_info里面找
 
 
 ### copy-back和move-back的区别：
@@ -257,13 +255,13 @@ Enter password:
 --redo-only  ：This is necessary if the backup  will have incremental changes applied to it later. 只要后面还有增量就一定要加上redo-only
 
 - log scan up to：
-在备份的过程中会有大量的log scan up to：不断的记日志，数据页不断的更新；说明我读到的这个数据页在不断的更新。
+  在备份的过程中会有大量的log scan up to：不断的记日志，数据页不断的更新；说明我读到的这个数据页在不断的更新。
 
 ## ！！！注意
 - 备份期间innodb表也会短时间的加锁，最好在从库上备份，并且暂停主库对从库的更新
 
 
- 
+
 ## 表的导入导出
 - 一般都是基于表的。
 ### 导出：两种方式
@@ -290,10 +288,10 @@ mysqldump -u username- T  target_ dir dbname  tablename  [option]
 ```
 ### 导入：load data
 - load data
-load比insert into速度要快好多，批量导入
-mysql >LOAD DATA  [LOCAL]  INFILE  'filename'  INTO  TABLE tablename [option] 
+  load比insert into速度要快好多，批量导入
+  mysql >LOAD DATA  [LOCAL]  INFILE  'filename'  INTO  TABLE tablename [option] 
 - mysqlimport
-Shell> mysqlimport -u root  -p***  [--LOCAL]  dbname order_tab.txt  [option] 
+  Shell> mysqlimport -u root  -p***  [--LOCAL]  dbname order_tab.txt  [option] 
 
 
 

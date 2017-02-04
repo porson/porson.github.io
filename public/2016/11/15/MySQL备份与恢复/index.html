@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="MySQL备份与恢复方法实践与总结">
+<meta name="description" content="声明
+本文整理自好友分享文档。
+原作者：王绍晖个人简介：腾云天下实习DBA
+
+binlog的解读
+查看binlog：
+mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3871734  	当前位置#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x79651">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL备份与恢复">
 <meta property="og:url" content="/2016/11/15/MySQL备份与恢复/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="MySQL备份与恢复方法实践与总结">
-<meta property="og:updated_time" content="2016-11-15T12:03:54.974Z">
+<meta property="og:description" content="声明
+本文整理自好友分享文档。
+原作者：王绍晖个人简介：腾云天下实习DBA
+
+binlog的解读
+查看binlog：
+mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3871734  	当前位置#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x79651">
+<meta property="og:updated_time" content="2017-02-04T11:07:07.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL备份与恢复">
-<meta name="twitter:description" content="MySQL备份与恢复方法实践与总结">
+<meta name="twitter:description" content="声明
+本文整理自好友分享文档。
+原作者：王绍晖个人简介：腾云天下实习DBA
+
+binlog的解读
+查看binlog：
+mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3871734  	当前位置#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x79651">
 
 
 
@@ -307,28 +325,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库学习/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -351,10 +347,6 @@
 
           
 
-          
-              <div class="post-description">
-                  <center>MySQL备份与恢复方法实践与总结</center>
-              </div>
           
 
         </div>
@@ -383,9 +375,10 @@
 <h2 id="binlog自动切换的条件："><a href="#binlog自动切换的条件：" class="headerlink" title="binlog自动切换的条件："></a>binlog自动切换的条件：</h2><ul>
 <li>达到阀值</li>
 <li>数据库重启会出现切换的情况</li>
-<li>binlog强行切换：</li>
+<li><p>binlog强行切换：</p>
+<p><code>mysql&gt; flush logs;</code>    </p>
+</li>
 </ul>
-<p><code>mysql&gt; flush logs;</code>        </p>
 <blockquote>
 <p>查看在使用的哪个日志，可以ls -t看时间</p>
 </blockquote>
@@ -451,7 +444,7 @@
 </li>
 <li><p>文件拷贝完成记得一定要修改datadir下面文件的属主和属组，重启数据库</p>
 </li>
-<li><p>跑binlog：<br>起始位置以及哪个binlog：xtrabackup_info     记录在这个文件里<br>终点位置需要我们自己去找：mysqlbinlog -vv mysqlserver.000023 | grep -i “drop” -C 100            </p>
+<li><p>跑binlog：<br>起始位置以及哪个binlog：xtrabackup_info 记录在这个文件里<br>终点位置需要我们自己去找：mysqlbinlog -vv mysqlserver.000023 | grep -i “drop” -C 100        </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost binlog]# cat a.sql | mysql -uroot -p -S /usr/local/mysql/data/mysql.sock </div><div class="line">Enter password:</div></pre></td></tr></table></figure>
 </li>
 <li><p>跑binlog的时候去监控：show processlist—是实时变化的</p>
@@ -463,19 +456,20 @@
 <li>进入datadir，看里面的内容是否齐全：ibdata1，ib_logfile，mysql，performation_scheme,information_scheme</li>
 <li>确认一下errorlog，pid文件，sock文件，</li>
 <li>mysql_safe –defaults-file=/etc/my.cnf  &amp;</li>
-<li>ps -ef | grep mysqld</li>
-<li>tail -100f     errorlog</li>
+<li>ps -ef | grep mysqld<ol>
+<li>tail -100f errorlog</li>
+</ol>
+</li>
 <li>登陆mysql -uroot -p -h127.0.0.1 或者mysql -uroot -p -S /…/…sock</li>
 </ol>
 <h2 id="备份方案："><a href="#备份方案：" class="headerlink" title="备份方案："></a>备份方案：</h2><ol>
 <li>备份期间会产生大量的IO，qps和tps都会大幅度的下降，从某种意义来说，在备份期间，数据库基本没法用</li>
 <li>将备份的文件传走(传到从库)：对IO和网络带宽产生负载</li>
-<li>恢复的时间：恢复的时候，binlog跑得特别慢，生产做业务的时候是并发执行的，恢复的时候只有一个线程在跑</li>
-</ol>
+<li><p>恢复的时间：恢复的时候，binlog跑得特别慢，生产做业务的时候是并发执行的，恢复的时候只有一个线程在跑</p>
 <ul>
-<li>需要考虑的点：    </li>
+<li>需要考虑的点：</li>
 </ul>
-<ol>
+</li>
 <li>备份对生产的影响,备份和数据传输</li>
 <li>备份的恢复时间</li>
 </ol>
@@ -659,13 +653,6 @@
             </div>
           
 
-          
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
           
 
           
