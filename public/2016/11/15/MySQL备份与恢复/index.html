@@ -86,32 +86,20 @@
 
 <meta name="description" content="声明
 本文整理自好友分享文档。
-原作者：王绍晖个人简介：腾云天下实习DBA
-
-binlog的解读
-查看binlog：
-mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3871734  	当前位置#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x79651">
+原作者：王绍晖个人简介：腾云天下实习DBA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL备份与恢复">
 <meta property="og:url" content="/2016/11/15/MySQL备份与恢复/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
 <meta property="og:description" content="声明
 本文整理自好友分享文档。
-原作者：王绍晖个人简介：腾云天下实习DBA
-
-binlog的解读
-查看binlog：
-mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3871734  	当前位置#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x79651">
-<meta property="og:updated_time" content="2017-02-04T11:07:07.032Z">
+原作者：王绍晖个人简介：腾云天下实习DBA">
+<meta property="og:updated_time" content="2017-02-05T15:57:09.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL备份与恢复">
 <meta name="twitter:description" content="声明
 本文整理自好友分享文档。
-原作者：王绍晖个人简介：腾云天下实习DBA
-
-binlog的解读
-查看binlog：
-mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3871734  	当前位置#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x79651">
+原作者：王绍晖个人简介：腾云天下实习DBA">
 
 
 
@@ -364,6 +352,7 @@ mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式12345# at 3
 <p>本文整理自好友分享文档。</p>
 <p>原作者：王绍晖<br>个人简介：腾云天下实习DBA</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="binlog的解读"><a href="#binlog的解读" class="headerlink" title="binlog的解读"></a>binlog的解读</h2><ul>
 <li>查看binlog：<ul>
 <li>mysqlbinlog -vv mysqlserver.00000[1-9]      #可以带正则表达式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># at 3871734  	当前位置</div><div class="line">#160828 10:08:13 server id 2  end_log_pos 3871891  CRC32 0x796512ad</div><div class="line">时间点                服务器id           结束位置    校验码</div><div class="line">Query	thread_id=21	exec_time=0	error_code=0</div><div class="line">        线程ID                           =0代表执行成功</div></pre></td></tr></table></figure>

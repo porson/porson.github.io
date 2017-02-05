@@ -9,6 +9,7 @@ tags: MySQL
 >原作者：王绍晖
 >个人简介：腾云天下实习DBA
 
+<!-- more -->
 
 ## binlog的解读
 
