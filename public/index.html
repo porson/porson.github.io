@@ -347,15 +347,15 @@
 
       
         
-          
-            <blockquote class="blockquote-center"><p>姿势：如何自己搭建一个简易WebServer。</p>
+          <blockquote class="blockquote-center"><p>姿势：如何自己搭建一个简易WebServer。</p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"fmt"</span></div><div class="line">	<span class="string">"log"</span></div><div class="line">	<span class="string">"net/http"</span></div><div class="line">	<span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</div><div class="line">	<span class="comment">// 解析参数,默认是不会解析的</span></div><div class="line">	r.ParseForm()</div><div class="line">	<span class="comment">// 这些信息是输出到服务器端的打印信息</span></div><div class="line">	fmt.Println(r.Form)</div><div class="line"></div><div class="line">	<span class="comment">// 获取输入的URL地址</span></div><div class="line">	fmt.Println(<span class="string">"path"</span>, r.URL.Path)</div><div class="line">	<span class="comment">//fmt.Println("scheme", r.URL.Scheme)</span></div><div class="line"></div><div class="line">	<span class="comment">// 获得传递的参数</span></div><div class="line">	fmt.Println(r.Form[<span class="string">"url_long"</span>])</div><div class="line">	<span class="keyword">for</span> k, v := <span class="keyword">range</span> r.Form &#123;</div><div class="line">		fmt.Println(<span class="string">"key:"</span>, k)</div><div class="line">		fmt.Println(<span class="string">"val:"</span>, strings.Join(v, <span class="string">","</span>))</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 返回结果</span></div><div class="line">	fmt.Fprintf(w, <span class="string">"Hello 李鹏翔!"</span>) <span class="comment">// 这个写入到 w 的是输出到客户端的</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="comment">// 设置访问的路由</span></div><div class="line">	http.HandleFunc(<span class="string">"/"</span>, sayhelloName)        </div><div class="line">	<span class="comment">// 设置监听的端口10160	</span></div><div class="line">	err := http.ListenAndServe(<span class="string">":10160"</span>, <span class="literal">nil</span>) </div><div class="line"></div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		log.Fatal(<span class="string">"ListenAndServe: "</span>, err)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Go语言实现WebServer是一件非常容易的事情。</p>
-<p>通过这个简单的WebServer我们可以很轻松的实现REST接口。</p>
-<p>那你也许就会问,我们的nginx、apache服务器不需要吗？Go就是不需要这些，因为他直接就监听tcp端口了，做了nginx做的事情，然后sayhelloName这个其实就是我们写的逻辑函数了，其实就是controller。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/07/Go语言自制简易WebServer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
