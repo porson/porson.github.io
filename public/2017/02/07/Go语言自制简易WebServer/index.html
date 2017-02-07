@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客通知," />
+  <meta name="keywords" content="Golang," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
+<meta name="description" content="姿势：如何自己搭建一个简易WebServer。
+
+123456789101112131415161718192021222324252627282930313233343536373839package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;	&quot;strings&quot;)func sayhelloName(w http.ResponseWriter, r *http.Req">
 <meta property="og:type" content="article">
-<meta property="og:title" content="抱歉，我又把我的博客拆了">
-<meta property="og:url" content="/2017/02/04/抱歉，我又把我的博客拆了/index.html">
+<meta property="og:title" content="Go语言自制简易WebServer">
+<meta property="og:url" content="/2017/02/07/Go语言自制简易WebServer/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
-<meta property="og:updated_time" content="2017-02-03T17:34:33.238Z">
+<meta property="og:description" content="姿势：如何自己搭建一个简易WebServer。
+
+123456789101112131415161718192021222324252627282930313233343536373839package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;	&quot;strings&quot;)func sayhelloName(w http.ResponseWriter, r *http.Req">
+<meta property="og:updated_time" content="2017-02-07T03:19:22.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="抱歉，我又把我的博客拆了">
-<meta name="twitter:description" content="这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。
-原因说明其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接">
+<meta name="twitter:title" content="Go语言自制简易WebServer">
+<meta name="twitter:description" content="姿势：如何自己搭建一个简易WebServer。
+
+123456789101112131415161718192021222324252627282930313233343536373839package mainimport (	&quot;fmt&quot;	&quot;log&quot;	&quot;net/http&quot;	&quot;strings&quot;)func sayhelloName(w http.ResponseWriter, r *http.Req">
 
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="/2017/02/04/抱歉，我又把我的博客拆了/"/>
+  <link rel="canonical" href="/2017/02/07/Go语言自制简易WebServer/"/>
 
 
 
 
 
-  <title> 抱歉，我又把我的博客拆了 | Porson's Bolg </title>
+  <title> Go语言自制简易WebServer | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/02/04/抱歉，我又把我的博客拆了/">
+  <link itemprop="mainEntityOfPage" href="/2017/02/07/Go语言自制简易WebServer/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -284,7 +287,7 @@
             
             
               
-                抱歉，我又把我的博客拆了
+                Go语言自制简易WebServer
               
             
           </h1>
@@ -299,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T01:19:43+08:00">
-                2017-02-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T11:12:44+08:00">
+                2017-02-07
               </time>
             
 
@@ -318,8 +321,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/04/抱歉，我又把我的博客拆了/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/抱歉，我又把我的博客拆了/" itemprop="commentCount"></span>
+                <a href="/2017/02/07/Go语言自制简易WebServer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/Go语言自制简易WebServer/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -345,14 +348,12 @@
       
 
       
-        <p>这是第二次发生这样的事情了，不过这次破坏是我有预谋的，大部分文章在移动硬盘里都有备份，我会尽快恢复。</p>
-<h3 id="原因说明"><a href="#原因说明" class="headerlink" title="原因说明"></a>原因说明</h3><p>其实事情是这样的，之前用hexo的时候为了方便直接用hexo自带的git同步工具生成静态文件push到我的GitHub Page，但是后来我的笔记本硬盘挂了（还好备份了文章…），直接导致我的项目源码没了。所有的Markdown文本都丢了。一堆静态文件也没有用，导致后来我更新文章的时候是直接修改HTML页面来传文章。<br>写起来非常困难不说，手动改格式排版什么的也非常的难看。再加上之前自己一个人负责一个比较大的项目，我的内心实际上是崩溃的。</p>
-<h3 id="目前状态"><a href="#目前状态" class="headerlink" title="目前状态"></a>目前状态</h3><p>首先是两个情况：</p>
-<ol>
-<li>之前的文章有保存备份，但是第一次崩溃的备份由于没有还原，可能都丢了。我还没有查我的移动硬盘，不过估计恢复的可能性不大。</li>
-<li>新年新气象。丁酉年离职，所以现在有更多的时间来积累。接下来MySQL的东西可能会更新的比较少，主要关注点在Python和Go这两个方向。博客内容也基本以开发为主。</li>
-</ol>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>感谢大(zi)家(ji)去年的支持与鼓励。</p>
+        <blockquote class="blockquote-center"><p>姿势：如何自己搭建一个简易WebServer。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"fmt"</span></div><div class="line">	<span class="string">"log"</span></div><div class="line">	<span class="string">"net/http"</span></div><div class="line">	<span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</div><div class="line">	<span class="comment">// 解析参数,默认是不会解析的</span></div><div class="line">	r.ParseForm()</div><div class="line">	<span class="comment">// 这些信息是输出到服务器端的打印信息</span></div><div class="line">	fmt.Println(r.Form)</div><div class="line"></div><div class="line">	<span class="comment">// 获取输入的URL地址</span></div><div class="line">	fmt.Println(<span class="string">"path"</span>, r.URL.Path)</div><div class="line">	<span class="comment">//fmt.Println("scheme", r.URL.Scheme)</span></div><div class="line"></div><div class="line">	<span class="comment">// 获得传递的参数</span></div><div class="line">	fmt.Println(r.Form[<span class="string">"url_long"</span>])</div><div class="line">	<span class="keyword">for</span> k, v := <span class="keyword">range</span> r.Form &#123;</div><div class="line">		fmt.Println(<span class="string">"key:"</span>, k)</div><div class="line">		fmt.Println(<span class="string">"val:"</span>, strings.Join(v, <span class="string">","</span>))</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 返回结果</span></div><div class="line">	fmt.Fprintf(w, <span class="string">"Hello 李鹏翔!"</span>) <span class="comment">// 这个写入到 w 的是输出到客户端的</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="comment">// 设置访问的路由</span></div><div class="line">	http.HandleFunc(<span class="string">"/"</span>, sayhelloName)        </div><div class="line">	<span class="comment">// 设置监听的端口10160	</span></div><div class="line">	err := http.ListenAndServe(<span class="string">":10160"</span>, <span class="literal">nil</span>) </div><div class="line"></div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		log.Fatal(<span class="string">"ListenAndServe: "</span>, err)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Go语言实现WebServer是一件非常容易的事情。</p>
+<p>通过这个简单的WebServer我们可以很轻松的实现REST接口。</p>
+<p>那你也许就会问,我们的nginx、apache服务器不需要吗？Go就是不需要这些，因为他直接就监听tcp端口了，做了nginx做的事情，然后sayhelloName这个其实就是我们写的逻辑函数了，其实就是controller。</p>
 
       
     </div>
@@ -376,7 +377,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客通知/" rel="tag"># 博客通知</a>
+            <a href="/tags/Golang/" rel="tag"># Golang</a>
           
         </div>
       
@@ -385,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/02/06/深刻理解Python中的元类（metaclass）/" rel="next" title="深刻理解Python中的元类（metaclass）">
+                <i class="fa fa-chevron-left"></i> 深刻理解Python中的元类（metaclass）
               </a>
             
           </div>
@@ -394,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/04/Python-常用加密方法/" rel="prev" title="Python字符串加密实现">
-                Python字符串加密实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -423,8 +420,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/04/抱歉，我又把我的博客拆了/"
-           data-title="抱歉，我又把我的博客拆了" data-url="/2017/02/04/抱歉，我又把我的博客拆了/">
+      <div class="ds-thread" data-thread-key="2017/02/07/Go语言自制简易WebServer/"
+           data-title="Go语言自制简易WebServer" data-url="/2017/02/07/Go语言自制简易WebServer/">
       </div>
     
   </div>
@@ -448,17 +445,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -524,22 +512,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原因说明"><span class="nav-number">1.</span> <span class="nav-text">原因说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目前状态"><span class="nav-number">2.</span> <span class="nav-text">目前状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
