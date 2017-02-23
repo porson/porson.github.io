@@ -10,6 +10,8 @@ tags:
 Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。
 {%endcq%}
 
+<!-- more -->
+
 ##  第一步：安装git
 
 ```shell
