@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="博客相关,hexo," />
 
 
 
@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。虽然我现在还是放弃了windos">
+<meta name="description" content="Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。
+
+第一步：安装git1sudo apt install git
+第二步：安装nodejs相关1sudo apt install nodejs npm
+第三步：创建node软连接1sudo ln -s /usr/bin/nod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决Python在Windows环境运行时的编码问题">
-<meta property="og:url" content="/2017/02/04/解决Python在Windows环境运行时的编码问题/index.html">
+<meta property="og:title" content="Ubuntu16.04 安装hexo方法">
+<meta property="og:url" content="/2017/02/23/Ubuntu16-04-安装hexo方法/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。虽然我现在还是放弃了windos">
-<meta property="og:updated_time" content="2017-02-23T03:31:11.750Z">
+<meta property="og:description" content="Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。
+
+第一步：安装git1sudo apt install git
+第二步：安装nodejs相关1sudo apt install nodejs npm
+第三步：创建node软连接1sudo ln -s /usr/bin/nod">
+<meta property="og:updated_time" content="2017-02-23T03:40:37.730Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决Python在Windows环境运行时的编码问题">
-<meta name="twitter:description" content="这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。虽然我现在还是放弃了windos">
+<meta name="twitter:title" content="Ubuntu16.04 安装hexo方法">
+<meta name="twitter:description" content="Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。
+
+第一步：安装git1sudo apt install git
+第二步：安装nodejs相关1sudo apt install nodejs npm
+第三步：创建node软连接1sudo ln -s /usr/bin/nod">
 
 
 
@@ -121,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="/2017/02/04/解决Python在Windows环境运行时的编码问题/"/>
+  <link rel="canonical" href="/2017/02/23/Ubuntu16-04-安装hexo方法/"/>
 
 
 
 
 
-  <title> 解决Python在Windows环境运行时的编码问题 | Porson's Bolg </title>
+  <title> Ubuntu16.04 安装hexo方法 | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +269,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/02/04/解决Python在Windows环境运行时的编码问题/">
+  <link itemprop="mainEntityOfPage" href="/2017/02/23/Ubuntu16-04-安装hexo方法/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -281,7 +293,7 @@
             
             
               
-                解决Python在Windows环境运行时的编码问题
+                Ubuntu16.04 安装hexo方法
               
             
           </h1>
@@ -296,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T18:22:51+08:00">
-                2017-02-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-23T11:32:48+08:00">
+                2017-02-23
               </time>
             
 
@@ -315,8 +327,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/04/解决Python在Windows环境运行时的编码问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/解决Python在Windows环境运行时的编码问题/" itemprop="commentCount"></span>
+                <a href="/2017/02/23/Ubuntu16-04-安装hexo方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/23/Ubuntu16-04-安装hexo方法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -342,36 +354,14 @@
       
 
       
-        <p>这是我之前在Python开发时候遇到的小问题，以前不太懂，后来想明白了。再后来发现好像也有很多人不知道，老说什么Windows环境Python开发非常不好用，麻烦。我跟你讲，不好用那都是骗人的，操作系统不背这个锅。<del>虽然我现在还是放弃了windos</del></p>
-<a id="more"></a>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
-<li>Windows 10</li>
-<li>Python 2.7</li>
-</ul>
-<h3 id="调教过程"><a href="#调教过程" class="headerlink" title="调教过程"></a>调教过程</h3><p>良好的开发环境就跟养儿子一样，从出生的时候就是要开始好好调教了。</p>
-<p>总结了一下以前在Windows环境下进行Python开发的时候常见体验不好的地方：</p>
-<ol>
-<li>汉字乱码</li>
-<li>Django莫名其妙报错</li>
-<li>安装第三方包困难</li>
-<li>…</li>
-</ol>
-<p>基本上这些问题可以分为两大类：</p>
-<ol>
-<li>权限问题</li>
-<li>编码问题</li>
-</ol>
-<h4 id="权限问题解决"><a href="#权限问题解决" class="headerlink" title="权限问题解决"></a>权限问题解决</h4><p>在使用命令行（cmd）安装东西的时候，一定要使用管理员身份打开cmd。</p>
-<p>负责安装上也会由于各种问题无法正常运行（例如Django）</p>
-<h4 id="编码问题解决"><a href="#编码问题解决" class="headerlink" title="编码问题解决"></a>编码问题解决</h4><p>编码问题解决有两种办法：</p>
-<p>一个解决的方案在程序中加入以下代码： Python代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys  </div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure>
-<p>另一个方案是我大力推荐，一劳永逸的办法：</p>
-<p>在python的<code>Lib\site-packages</code>文件夹下新建一个<code>sitecustomize.py</code>，内容为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># encoding=utf8  </span></div><div class="line"><span class="keyword">import</span> sys  </div><div class="line">  </div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure>
-<p>此时重启python解释器，执行sys.getdefaultencoding()，发现编码已经被设置为utf8的了，多次重启之后，效果相同，这是因为系统在python启动的时候，自行调用该文件，设置系统的默认编码，而不需要每次都手动的加上解决代码。</p>
-<hr>
-<p>只要按照上面的方法进行设置，Windows环境下Python开发感受会提升非常的大。</p>
+        <blockquote class="blockquote-center"><p>Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。</p>
+</blockquote>
+<h2 id="第一步：安装git"><a href="#第一步：安装git" class="headerlink" title="第一步：安装git"></a>第一步：安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure>
+<h2 id="第二步：安装nodejs相关"><a href="#第二步：安装nodejs相关" class="headerlink" title="第二步：安装nodejs相关"></a>第二步：安装nodejs相关</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install nodejs npm</div></pre></td></tr></table></figure>
+<h2 id="第三步：创建node软连接"><a href="#第三步：创建node软连接" class="headerlink" title="第三步：创建node软连接"></a>第三步：创建node软连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/bin/nodejs /usr/bin/node</div></pre></td></tr></table></figure>
+<h2 id="第四步：安装hexo"><a href="#第四步：安装hexo" class="headerlink" title="第四步：安装hexo"></a>第四步：安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm i -g hexo hexo-cli</div></pre></td></tr></table></figure>
+<h2 id="第五步：验证"><a href="#第五步：验证" class="headerlink" title="第五步：验证"></a>第五步：验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">➜  ~ hexo</div><div class="line">Usage: hexo &lt;command&gt;</div><div class="line"></div><div class="line">Commands:</div><div class="line">  help     Get help on a command.</div><div class="line">  init     Create a new Hexo folder.</div><div class="line">  version  Display version information.</div><div class="line"></div><div class="line">Global Options:</div><div class="line">  --config  Specify config file instead of using _config.yml</div><div class="line">  --cwd     Specify the CWD</div><div class="line">  --debug   Display all verbose messages in the terminal</div><div class="line">  --draft   Display draft posts</div><div class="line">  --safe    Disable all plugins and scripts</div><div class="line">  --silent  Hide output on console</div><div class="line"></div><div class="line">For more help, you can use &apos;hexo help [command]&apos; for the detailed information</div><div class="line">or you can check the docs: http://hexo.io/docs/</div></pre></td></tr></table></figure>
+<p>这样基本就安装成功了。</p>
 
       
     </div>
@@ -395,7 +385,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/博客相关/" rel="tag"># 博客相关</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
         </div>
       
@@ -404,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/04/Go语言Web框架Revel的使用/" rel="next" title="Go语言Web框架Revel初体验">
-                <i class="fa fa-chevron-left"></i> Go语言Web框架Revel初体验
+              <a href="/2017/02/07/Python线程池的实现/" rel="next" title="Python线程池的实现">
+                <i class="fa fa-chevron-left"></i> Python线程池的实现
               </a>
             
           </div>
@@ -413,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/05/Go语言append函数操作slice时的一个小坑/" rel="prev" title="Go语言append函数操作slice时的一个小坑">
-                Go语言append函数操作slice时的一个小坑 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -442,8 +430,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/04/解决Python在Windows环境运行时的编码问题/"
-           data-title="解决Python在Windows环境运行时的编码问题" data-url="/2017/02/04/解决Python在Windows环境运行时的编码问题/">
+      <div class="ds-thread" data-thread-key="2017/02/23/Ubuntu16-04-安装hexo方法/"
+           data-title="Ubuntu16.04 安装hexo方法" data-url="/2017/02/23/Ubuntu16-04-安装hexo方法/">
       </div>
     
   </div>
@@ -553,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调教过程"><span class="nav-number">2.</span> <span class="nav-text">调教过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权限问题解决"><span class="nav-number">2.1.</span> <span class="nav-text">权限问题解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编码问题解决"><span class="nav-number">2.2.</span> <span class="nav-text">编码问题解决</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：安装git"><span class="nav-number">1.</span> <span class="nav-text">第一步：安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：安装nodejs相关"><span class="nav-number">2.</span> <span class="nav-text">第二步：安装nodejs相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：创建node软连接"><span class="nav-number">3.</span> <span class="nav-text">第三步：创建node软连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：安装hexo"><span class="nav-number">4.</span> <span class="nav-text">第四步：安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：验证"><span class="nav-number">5.</span> <span class="nav-text">第五步：验证</span></a></li></ol></div>
             
 
           </div>
