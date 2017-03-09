@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客相关,hexo," />
+  <meta name="keywords" content="Python,Shell," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。">
+<meta name="description" content="​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16.04 安装hexo方法">
-<meta property="og:url" content="/2017/02/23/Ubuntu16-04-安装hexo方法/index.html">
+<meta property="og:title" content="一个Python调用Shell时遇到的问题">
+<meta property="og:url" content="/2017/03/07/一个Python调用Shell时遇到的问题/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。">
-<meta property="og:updated_time" content="2017-03-07T10:36:13.046Z">
+<meta property="og:description" content="​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。">
+<meta property="og:updated_time" content="2017-03-09T07:49:53.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu16.04 安装hexo方法">
-<meta name="twitter:description" content="Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。">
+<meta name="twitter:title" content="一个Python调用Shell时遇到的问题">
+<meta name="twitter:description" content="​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="/2017/02/23/Ubuntu16-04-安装hexo方法/"/>
+  <link rel="canonical" href="/2017/03/07/一个Python调用Shell时遇到的问题/"/>
 
 
 
 
 
-  <title> Ubuntu16.04 安装hexo方法 | Porson's Bolg </title>
+  <title> 一个Python调用Shell时遇到的问题 | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/02/23/Ubuntu16-04-安装hexo方法/">
+  <link itemprop="mainEntityOfPage" href="/2017/03/07/一个Python调用Shell时遇到的问题/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -281,7 +281,7 @@
             
             
               
-                Ubuntu16.04 安装hexo方法
+                一个Python调用Shell时遇到的问题
               
             
           </h1>
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-23T11:32:48+08:00">
-                2017-02-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-07T18:50:15+08:00">
+                2017-03-07
               </time>
             
 
@@ -315,8 +315,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/23/Ubuntu16-04-安装hexo方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/23/Ubuntu16-04-安装hexo方法/" itemprop="commentCount"></span>
+                <a href="/2017/03/07/一个Python调用Shell时遇到的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/07/一个Python调用Shell时遇到的问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -342,15 +342,36 @@
       
 
       
-        <blockquote class="blockquote-center"><p>Ubuntu16.04 安装nodejs的时候，在PATH当中的bin文件的名称是nodejs，而不是node，所以导致常规方法安装hexo失败。这里介绍一下具体的操作方法。</p>
+        <blockquote class="blockquote-center"><p>​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="第一步：安装git"><a href="#第一步：安装git" class="headerlink" title="第一步：安装git"></a>第一步：安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install git</div></pre></td></tr></table></figure>
-<h2 id="第二步：安装nodejs相关"><a href="#第二步：安装nodejs相关" class="headerlink" title="第二步：安装nodejs相关"></a>第二步：安装nodejs相关</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install nodejs npm</div></pre></td></tr></table></figure>
-<h2 id="第三步：创建node软连接"><a href="#第三步：创建node软连接" class="headerlink" title="第三步：创建node软连接"></a>第三步：创建node软连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/bin/nodejs /usr/bin/node</div></pre></td></tr></table></figure>
-<h2 id="第四步：安装hexo"><a href="#第四步：安装hexo" class="headerlink" title="第四步：安装hexo"></a>第四步：安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm i -g hexo hexo-cli</div></pre></td></tr></table></figure>
-<h2 id="第五步：验证"><a href="#第五步：验证" class="headerlink" title="第五步：验证"></a>第五步：验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">➜  ~ hexo</div><div class="line">Usage: hexo &lt;command&gt;</div><div class="line"></div><div class="line">Commands:</div><div class="line">  help     Get help on a command.</div><div class="line">  init     Create a new Hexo folder.</div><div class="line">  version  Display version information.</div><div class="line"></div><div class="line">Global Options:</div><div class="line">  --config  Specify config file instead of using _config.yml</div><div class="line">  --cwd     Specify the CWD</div><div class="line">  --debug   Display all verbose messages in the terminal</div><div class="line">  --draft   Display draft posts</div><div class="line">  --safe    Disable all plugins and scripts</div><div class="line">  --silent  Hide output on console</div><div class="line"></div><div class="line">For more help, you can use &apos;hexo help [command]&apos; for the detailed information</div><div class="line">or you can check the docs: http://hexo.io/docs/</div></pre></td></tr></table></figure>
-<p>这样基本就安装成功了。</p>
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>前两天老大扔我一个脚本让我看一下这个脚本有没有什么bug，大体流程是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> commands </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">exectue_shell</span><span class="params">(cmd,times = <span class="number">1</span>)</span>:</span></div><div class="line">    result_code = commands.getoutput(cmd)</div><div class="line">    <span class="keyword">if</span> result_code !=<span class="number">0</span> <span class="keyword">and</span> times &gt; <span class="number">0</span>:</div><div class="line">        result_code = commands.getoutput(cmd)</div><div class="line">        times -= <span class="number">1</span></div><div class="line">        exectue_shell(cmd,times)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<p>意思就是执行cmd命令，然后如果没有执行成功，就再执行一次，如果还是失败就退出。</p>
+<p>我看了一下说，应该没什么问题吧。</p>
+<p>老大说，不对，有BUG，执行的时候，一个单进程的脚本竟然开启了好几个子进程，这明显是不科学的。</p>
+<h2 id="问题溯源"><a href="#问题溯源" class="headerlink" title="问题溯源"></a>问题溯源</h2><p>听到这个问题我第一反应就是执行的线程没有结束，可是明明已经获取了返回值。</p>
+<p>那这就说明了另一个问题，commands包的getoutput函数是不阻塞的。</p>
+<p>然后，我就去看了getoutput的实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getoutput</span><span class="params">(cmd)</span>:</span></div><div class="line">    <span class="string">"""Return output (stdout or stderr) of executing cmd in a shell."""</span></div><div class="line">    <span class="keyword">return</span> getstatusoutput(cmd)[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getstatusoutput</span><span class="params">(cmd)</span>:</span></div><div class="line">    <span class="string">"""Return (status, output) of executing cmd in a shell."""</span></div><div class="line">    <span class="keyword">import</span> os</div><div class="line">    pipe = os.popen(<span class="string">'&#123; '</span> + cmd + <span class="string">'; &#125; 2&gt;&amp;1'</span>, <span class="string">'r'</span>)</div><div class="line">    text = pipe.read()</div><div class="line">    sts = pipe.close()</div><div class="line">    <span class="keyword">if</span> sts <span class="keyword">is</span> <span class="keyword">None</span>: sts = <span class="number">0</span></div><div class="line">    <span class="keyword">if</span> text[<span class="number">-1</span>:] == <span class="string">'\n'</span>: text = text[:<span class="number">-1</span>]</div><div class="line">    <span class="keyword">return</span> sts, text</div></pre></td></tr></table></figure>
+<p>然后可以很清楚的看到，getoutput方法的背后调用的实际上是os模块的popen，开启了一个管道，然后单方面的关闭了。</p>
+<p>所以结论就是：</p>
+<blockquote>
+<p>子线程执行的任务需要的时间较长，父线程没有在超时时间内等待到子线程的返回值，既返回None，导致父线程认为子线程执行失败，重启子线程。然而子线程并没有失败，依然在内存中运行。所以导致出现非常多子线程的出现。</p>
+</blockquote>
+<p>这个问题的原因就出现了。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>那么如何解决这个问题，思路就一个，保证父线程会等待子线程的执行结束，或者子线程会阻塞父线程。</p>
+<p>Pyton执行Shell命令一般有以下这几种方法：</p>
+<ul>
+<li>commands.getoutput(command)</li>
+<li>os.system(command)</li>
+<li>os.popen(command,mode)</li>
+<li>subprocess模块</li>
+</ul>
+<p>其中os.system可以做到线程阻塞，这个模块是用C实现的，先是fork了一个子线程，然后父线程回waitpid，缺点是返回值并不是真实的返回值（但0是0）。</p>
+<p>subprocess模块的call()方法也可以打到线程阻塞的效果，但是调用的时候命令参数是以list的形式传入，对命令不是非常友好。</p>
+<p>所以最后换成os.system去执行命令，就成功了。</p>
 
       
     </div>
@@ -374,9 +395,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客相关/" rel="tag"># 博客相关</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Shell/" rel="tag"># Shell</a>
           
         </div>
       
@@ -385,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/07/Python线程池的实现/" rel="next" title="Python线程池的实现">
-                <i class="fa fa-chevron-left"></i> Python线程池的实现
+              <a href="/2017/02/23/Ubuntu16-04-安装hexo方法/" rel="next" title="Ubuntu16.04 安装hexo方法">
+                <i class="fa fa-chevron-left"></i> Ubuntu16.04 安装hexo方法
               </a>
             
           </div>
@@ -394,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/07/一个Python调用Shell时遇到的问题/" rel="prev" title="一个Python调用Shell时遇到的问题">
-                一个Python调用Shell时遇到的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -423,8 +440,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/23/Ubuntu16-04-安装hexo方法/"
-           data-title="Ubuntu16.04 安装hexo方法" data-url="/2017/02/23/Ubuntu16-04-安装hexo方法/">
+      <div class="ds-thread" data-thread-key="2017/03/07/一个Python调用Shell时遇到的问题/"
+           data-title="一个Python调用Shell时遇到的问题" data-url="/2017/03/07/一个Python调用Shell时遇到的问题/">
       </div>
     
   </div>
@@ -534,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：安装git"><span class="nav-number">1.</span> <span class="nav-text">第一步：安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：安装nodejs相关"><span class="nav-number">2.</span> <span class="nav-text">第二步：安装nodejs相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：创建node软连接"><span class="nav-number">3.</span> <span class="nav-text">第三步：创建node软连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：安装hexo"><span class="nav-number">4.</span> <span class="nav-text">第四步：安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：验证"><span class="nav-number">5.</span> <span class="nav-text">第五步：验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题溯源"><span class="nav-number">2.</span> <span class="nav-text">问题溯源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题解决"><span class="nav-number">3.</span> <span class="nav-text">问题解决</span></a></li></ol></div>
             
 
           </div>
