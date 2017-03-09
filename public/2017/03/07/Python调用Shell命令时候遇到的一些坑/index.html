@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Python,Shell," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Python跨平台处理文本的坑我就先踩了。">
+<meta name="description" content="​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python文件编码自动转换模块的实现">
-<meta property="og:url" content="/2017/02/04/文件编码自动转换模块的实现/index.html">
+<meta property="og:title" content="深入了解Python调用Shell">
+<meta property="og:url" content="/2017/03/07/Python调用Shell命令时候遇到的一些坑/index.html">
 <meta property="og:site_name" content="Porson's Bolg">
-<meta property="og:description" content="Python跨平台处理文本的坑我就先踩了。">
-<meta property="og:updated_time" content="2017-03-07T10:36:13.046Z">
+<meta property="og:description" content="​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。">
+<meta property="og:updated_time" content="2017-03-09T07:45:35.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python文件编码自动转换模块的实现">
-<meta name="twitter:description" content="Python跨平台处理文本的坑我就先踩了。">
+<meta name="twitter:title" content="深入了解Python调用Shell">
+<meta name="twitter:description" content="​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="/2017/02/04/文件编码自动转换模块的实现/"/>
+  <link rel="canonical" href="/2017/03/07/Python调用Shell命令时候遇到的一些坑/"/>
 
 
 
 
 
-  <title> Python文件编码自动转换模块的实现 | Porson's Bolg </title>
+  <title> 深入了解Python调用Shell | Porson's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/02/04/文件编码自动转换模块的实现/">
+  <link itemprop="mainEntityOfPage" href="/2017/03/07/Python调用Shell命令时候遇到的一些坑/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -281,7 +281,7 @@
             
             
               
-                Python文件编码自动转换模块的实现
+                深入了解Python调用Shell
               
             
           </h1>
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T11:04:48+08:00">
-                2017-02-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-07T18:50:15+08:00">
+                2017-03-07
               </time>
             
 
@@ -315,8 +315,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/04/文件编码自动转换模块的实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/文件编码自动转换模块的实现/" itemprop="commentCount"></span>
+                <a href="/2017/03/07/Python调用Shell命令时候遇到的一些坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/07/Python调用Shell命令时候遇到的一些坑/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -342,42 +342,36 @@
       
 
       
-        <blockquote class="blockquote-center"><p>Python跨平台处理文本的坑我就先踩了。</p>
+        <blockquote class="blockquote-center"><p>​    关于Python调用Shell时的一些之前没有注意过得问题。问题很简单，但是比较容易忽略。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="操作系统默认编码"><a href="#操作系统默认编码" class="headerlink" title="操作系统默认编码"></a>操作系统默认编码</h3><table>
-<thead>
-<tr>
-<th>操作系统</th>
-<th>默认编码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows</td>
-<td>GBK</td>
-</tr>
-<tr>
-<td>MacOS</td>
-<td>Unicode</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>UTF8</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Python文件转码模式"><a href="#Python文件转码模式" class="headerlink" title="Python文件转码模式"></a>Python文件转码模式</h3><blockquote>
-<p>源编码 –decode–&gt;&gt; Unicode编码 –encode–&gt;&gt; 目标编码</p>
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>前两天老大扔我一个脚本让我看一下这个脚本有没有什么bug，大体流程是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> commands </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">exectue_shell</span><span class="params">(cmd,times = <span class="number">1</span>)</span>:</span></div><div class="line">    result_code = commands.getoutput(cmd)</div><div class="line">    <span class="keyword">if</span> result_code !=<span class="number">0</span> <span class="keyword">and</span> times &gt; <span class="number">0</span>:</div><div class="line">        result_code = commands.getoutput(cmd)</div><div class="line">        times -= <span class="number">1</span></div><div class="line">        exectue_shell(cmd,times)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<p>意思就是执行cmd命令，然后如果没有执行成功，就再执行一次，如果还是失败就退出。</p>
+<p>我看了一下说，应该没什么问题吧。</p>
+<p>老大说，不对，有BUG，执行的时候，一个单进程的脚本竟然开启了好几个子进程，这明显是不科学的。</p>
+<h2 id="问题溯源"><a href="#问题溯源" class="headerlink" title="问题溯源"></a>问题溯源</h2><p>听到这个问题我第一反应就是执行的线程没有结束，可是明明已经获取了返回值。</p>
+<p>那这就说明了另一个问题，commands包的getoutput函数是不阻塞的。</p>
+<p>然后，我就去看了getoutput的实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getoutput</span><span class="params">(cmd)</span>:</span></div><div class="line">    <span class="string">"""Return output (stdout or stderr) of executing cmd in a shell."""</span></div><div class="line">    <span class="keyword">return</span> getstatusoutput(cmd)[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getstatusoutput</span><span class="params">(cmd)</span>:</span></div><div class="line">    <span class="string">"""Return (status, output) of executing cmd in a shell."""</span></div><div class="line">    <span class="keyword">import</span> os</div><div class="line">    pipe = os.popen(<span class="string">'&#123; '</span> + cmd + <span class="string">'; &#125; 2&gt;&amp;1'</span>, <span class="string">'r'</span>)</div><div class="line">    text = pipe.read()</div><div class="line">    sts = pipe.close()</div><div class="line">    <span class="keyword">if</span> sts <span class="keyword">is</span> <span class="keyword">None</span>: sts = <span class="number">0</span></div><div class="line">    <span class="keyword">if</span> text[<span class="number">-1</span>:] == <span class="string">'\n'</span>: text = text[:<span class="number">-1</span>]</div><div class="line">    <span class="keyword">return</span> sts, text</div></pre></td></tr></table></figure>
+<p>然后可以很清楚的看到，getoutput方法的背后调用的实际上是os模块的popen，开启了一个管道，然后单方面的关闭了。</p>
+<p>所以结论就是：</p>
+<blockquote>
+<p>子线程执行的任务需要的时间较长，父线程没有在超时时间内等待到子线程的返回值，既返回None，导致父线程认为子线程执行失败，重启子线程。然而子线程并没有失败，依然在内存中运行。所以导致出现非常多子线程的出现。</p>
 </blockquote>
-<p>Python在处理字符串的时候，使用decode会将字符串解码成Unicode编码，然后再按照指定编码进行encode，就可对文本进行编码处理。</p>
-<h2 id="chardet的使用"><a href="#chardet的使用" class="headerlink" title="chardet的使用"></a>chardet的使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取文件编码</span></div><div class="line">code_style = chardet.detect(f.read()).get(<span class="string">'encoding'</span>)</div><div class="line"></div><div class="line"><span class="comment"># chardet.detect(f.read())获得的返回值为一个字典，包含文件编码与可信度。</span></div><div class="line"><span class="comment"># 数据越长得到的编码可信度越高，进行解码的正确的可能性就越高。</span></div></pre></td></tr></table></figure>
-<h2 id="坑，大坑"><a href="#坑，大坑" class="headerlink" title="坑，大坑"></a>坑，大坑</h2><ol>
-<li>MacOS生成的文件默认的编码为Unicode，在使用chardet进行编码识别的时候，会识别成UTF16-LTE而不是想当然的Unicode。</li>
-<li>Mac的编辑器带的BOM，Python在进行处理的时候并不会忽略，所以直接decode会报错</li>
-<li>查不到资料的。</li>
-</ol>
-<h2 id="自制文件转码模块"><a href="#自制文件转码模块" class="headerlink" title="自制文件转码模块"></a>自制文件转码模块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf8</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> chardet</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 文件落盘</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_file_to_disk</span><span class="params">(f, fp)</span>:</span></div><div class="line">    <span class="comment"># 重置文件对象指针</span></div><div class="line">    f.seek(<span class="number">0</span>, os.SEEK_SET)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        new_file = open(fp, <span class="string">'wb+'</span>)</div><div class="line">        new_file.write(f.read())</div><div class="line">        new_file.close()</div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">    <span class="keyword">except</span> Exception, e:</div><div class="line">        <span class="keyword">print</span> e</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 文件转码为utf8</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_file_to_utf8</span><span class="params">(fp)</span>:</span></div><div class="line">    files = os.listdir(fp)</div><div class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> files:</div><div class="line">        path = os.path.join(fp, f)</div><div class="line">        f_reader = open(path, <span class="string">'rb'</span>)</div><div class="line">        <span class="comment"># 获取文件编码</span></div><div class="line">        code_style = chardet.detect(f_reader.read()).get(<span class="string">'encoding'</span>)</div><div class="line">        <span class="comment"># 重置文件对象指针</span></div><div class="line">        f_reader.seek(<span class="number">0</span>, os.SEEK_SET)</div><div class="line">        content_change = []</div><div class="line">        <span class="comment"># 获取内容开始转码</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            <span class="comment"># 针对mac进行处理</span></div><div class="line">            <span class="keyword">if</span> code_style == <span class="string">'UTF-16LE'</span>:</div><div class="line">                content_change = f_reader.read().decode(<span class="string">'utf16'</span>, <span class="string">'ignore'</span>).encode(<span class="string">'utf8'</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                content_change = f_reader.read().decode(code_style).encode(<span class="string">'utf8'</span>)</div><div class="line">        <span class="keyword">except</span> Exception, e:</div><div class="line">            <span class="keyword">print</span> <span class="string">u"转码失败"</span></div><div class="line">            <span class="keyword">print</span> <span class="string">u"编码为%s"</span> % code_style</div><div class="line">            <span class="keyword">print</span> str(e)</div><div class="line"></div><div class="line">        <span class="keyword">with</span> open(path, <span class="string">'w'</span>) <span class="keyword">as</span> newFile:</div><div class="line">            newFile.writelines(content_change)</div><div class="line">            newFile.close()</div></pre></td></tr></table></figure>
+<p>这个问题的原因就出现了。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>那么如何解决这个问题，思路就一个，保证父线程会等待子线程的执行结束，或者子线程会阻塞父线程。</p>
+<p>Pyton执行Shell命令一般有以下这几种方法：</p>
+<ul>
+<li>commands.getoutput(command)</li>
+<li>os.system(command)</li>
+<li>os.popen(command,mode)</li>
+<li>subprocess模块</li>
+</ul>
+<p>其中os.system可以做到线程阻塞，这个模块是用C实现的，先是fork了一个子线程，然后父线程回waitpid，缺点是返回值并不是真实的返回值（但0是0）。</p>
+<p>subprocess模块的call()方法也可以打到线程阻塞的效果，但是调用的时候命令参数是以list的形式传入，对命令不是非常友好。</p>
+<p>所以最后换成os.system去执行命令，就成功了。</p>
 
       
     </div>
@@ -403,6 +397,8 @@
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
+            <a href="/tags/Shell/" rel="tag"># Shell</a>
+          
         </div>
       
 
@@ -410,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/04/Python-常用加密方法/" rel="next" title="Python字符串加密实现">
-                <i class="fa fa-chevron-left"></i> Python字符串加密实现
+              <a href="/2017/02/23/Ubuntu16-04-安装hexo方法/" rel="next" title="Ubuntu16.04 安装hexo方法">
+                <i class="fa fa-chevron-left"></i> Ubuntu16.04 安装hexo方法
               </a>
             
           </div>
@@ -419,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/04/Go语言Web框架Revel的使用/" rel="prev" title="Go语言Web框架Revel初体验">
-                Go语言Web框架Revel初体验 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -448,8 +440,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/04/文件编码自动转换模块的实现/"
-           data-title="Python文件编码自动转换模块的实现" data-url="/2017/02/04/文件编码自动转换模块的实现/">
+      <div class="ds-thread" data-thread-key="2017/03/07/Python调用Shell命令时候遇到的一些坑/"
+           data-title="深入了解Python调用Shell" data-url="/2017/03/07/Python调用Shell命令时候遇到的一些坑/">
       </div>
     
   </div>
@@ -559,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统默认编码"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统默认编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python文件转码模式"><span class="nav-number">1.2.</span> <span class="nav-text">Python文件转码模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chardet的使用"><span class="nav-number">2.</span> <span class="nav-text">chardet的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坑，大坑"><span class="nav-number">3.</span> <span class="nav-text">坑，大坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自制文件转码模块"><span class="nav-number">4.</span> <span class="nav-text">自制文件转码模块</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题溯源"><span class="nav-number">2.</span> <span class="nav-text">问题溯源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题解决"><span class="nav-number">3.</span> <span class="nav-text">问题解决</span></a></li></ol></div>
             
 
           </div>
