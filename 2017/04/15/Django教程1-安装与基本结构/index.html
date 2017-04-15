@@ -1,0 +1,759 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Django,python,GJY特别教程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="​    知识要传递给下一代，新手司机带个小胸弟一起上路。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django傻瓜教程第一章：废话与基本安装与运行">
+<meta property="og:url" content="/2017/04/15/Django教程1-安装与基本结构/index.html">
+<meta property="og:site_name" content="Porson's Bolg">
+<meta property="og:description" content="​    知识要传递给下一代，新手司机带个小胸弟一起上路。">
+<meta property="og:image" content="/images/post/20170415/itwork.png">
+<meta property="og:updated_time" content="2017-04-15T12:40:23.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django傻瓜教程第一章：废话与基本安装与运行">
+<meta name="twitter:description" content="​    知识要传递给下一代，新手司机带个小胸弟一起上路。">
+<meta name="twitter:image" content="/images/post/20170415/itwork.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'porson',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/2017/04/15/Django教程1-安装与基本结构/"/>
+
+
+
+
+
+  <title> Django傻瓜教程第一章：废话与基本安装与运行 | Porson's Bolg </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+    <div class="site-meta-headline">
+      <a>
+        <img class="custom-logo-image" src="/images/favicon.png"
+             alt="Porson's Bolg"/>
+      </a>
+    </div>
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Porson's Bolg</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">MySQL/Python/Golang/Others</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-md"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/2017/04/15/Django教程1-安装与基本结构/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Porson">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Porson's Bolg">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Porson's Bolg" src="/images/favicon.png">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Django傻瓜教程第一章：废话与基本安装与运行
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-15T18:35:22+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/15/Django教程1-安装与基本结构/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/15/Django教程1-安装与基本结构/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>​    知识要传递给下一代，新手司机带个小胸弟一起上路。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="BEFORE-ALL"><a href="#BEFORE-ALL" class="headerlink" title="BEFORE ALL"></a>BEFORE ALL</h2><blockquote>
+<p>WARNING : 此系列教程的所有代码都要跟着敲，尽可能完成最后留下的习题作业。[敲黑板]G同学，就是在跟你说话。</p>
+</blockquote>
+<p>开头的几章比较简单、漫长。然我们慢慢回忆起关于Python，关于Django的一切吧…</p>
+<p>整个教程将会沿着Django这条路线，将Django的MTV三部分依次讲完，并会连带着介绍Django本身的一些特性或功能，比如Admin，比如Model。</p>
+<p>讲解Templates的时候也会捎带着介绍一些前端知识，传授一个古老工具与框架JQuery、还有当前非常流行的Bootstarp等。</p>
+<p>整个教程过程中会穿插Python基础语法的介绍，以及一些使用某些方法或函数的时候个人总结的一些小技巧，或者遇到的一些坑。</p>
+<p>下面将正式开始这个系列的教程。</p>
+<h2 id="WHAT-IS-DJANGO-AND-HOW-SHOULD-I-USE-IT"><a href="#WHAT-IS-DJANGO-AND-HOW-SHOULD-I-USE-IT" class="headerlink" title="WHAT IS DJANGO AND HOW SHOULD I USE IT?"></a>WHAT IS DJANGO AND HOW SHOULD I USE IT?</h2><h3 id="Django-Say-Hello"><a href="#Django-Say-Hello" class="headerlink" title="Django Say Hello"></a>Django Say Hello</h3><p>正所谓“知其然，知其所以然”。想要了解一门技术并深入学习，了解起发展历史是一件非常有必要的事情。通过其发展历史可以看到这门技术的精神和灵魂，更利于我们去理解掌握它。</p>
+<p>说出来你可能不信，这个目前风靡Python圈的框架，敏捷开发与模块化设计的代表，最初是由一个来自堪萨斯州的网络开发小组编写的，而这个开发小组是在一家新闻出版社里的…</p>
+<blockquote>
+<p>​    它诞生于 2003 年秋天，那时 Lawrence Journal-World 报纸的程序员 Adrian Holovaty 和 Simon Willison 开始用 Python 来编写程序。</p>
+<p>​    当时他们的 World Online 小组制作并维护当地的几个新闻站点, 并在以新闻界特有的快节奏开发环境中逐渐发展。 这些站点包括有 LJWorld.com、Lawrence.com 和 KUsports.com， 记者（或管理层） 要求增加的特征或整个程序都能在计划时间内快速的被建立，这些时间通常只有几天 或几个小时。 因此，Adrian 和 Simon 开发了一种节省时间的网络程序开发框架， 这是在截止时间前能完成程序的唯一途径。</p>
+</blockquote>
+<p>而在这样的环境下出生的Django很自然的就被赋予了快速、简便的基因。所以这也是为什么Django提供了管理后台、动态模板、数据库驱动等一系列功能。这些功能的存在正是为了动态内容管理。</p>
+<p>​    Django开源之后，经过<del>GayHub</del>众人调教之后，这个Python框架也越来越趋于成熟。其快速开发的理念也影响了相当一部分框架和设计模式。</p>
+<h3 id="Django-Install"><a href="#Django-Install" class="headerlink" title="Django Install"></a>Django Install</h3><p>Django的安装文档在网上有很多，这里就不赘述了，简便的安装命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install django</div></pre></td></tr></table></figure>
+<p>当然你也可以去Django官网下载tar包，使用setup.py进行安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tar -xvf django.tar.gz</div><div class="line">cd django.tar.gz</div><div class="line">python setup.pyt install</div></pre></td></tr></table></figure>
+<h3 id="My-First-Django-Project"><a href="#My-First-Django-Project" class="headerlink" title="My First Django Project"></a>My First Django Project</h3><p>在操作系统中安装了Django之后，你的<strong>环境变量</strong>当中会多出来下面这个命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">django-admin</div></pre></td></tr></table></figure>
+<p>运行之后会看到这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$ django-admin</div><div class="line"></div><div class="line">Type &apos;django-admin help &lt;subcommand&gt;&apos; for help on a specific subcommand.</div><div class="line"></div><div class="line">Available subcommands:</div><div class="line"></div><div class="line">[django]</div><div class="line">    check</div><div class="line">    compilemessages</div><div class="line">    createcachetable</div><div class="line">    dbshell</div><div class="line">    diffsettings</div><div class="line">    dumpdata</div><div class="line">    flush</div><div class="line">    inspectdb</div><div class="line">    loaddata</div><div class="line">    makemessages</div><div class="line">    makemigrations</div><div class="line">    migrate</div><div class="line">    runserver</div><div class="line">    sendtestemail</div><div class="line">    shell</div><div class="line">    showmigrations</div><div class="line">    sqlflush</div><div class="line">    sqlmigrate</div><div class="line">    sqlsequencereset</div><div class="line">    squashmigrations</div><div class="line">    startapp</div><div class="line">    startproject</div><div class="line">    test</div><div class="line">    testserver</div><div class="line">Note that only Django core commands are listed as settings are not properly conf  igured (error: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.).</div></pre></td></tr></table></figure>
+<p>这条命令的其他选项<del>日后</del>我们会慢慢一一介绍，最开始先讲开始一个Django项目的必须使用的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">startapp</div><div class="line">startproject</div></pre></td></tr></table></figure>
+<h4 id="A-new-Django-project"><a href="#A-new-Django-project" class="headerlink" title="A new Django project"></a>A new Django project</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">django-admin startproject gjyPython</div></pre></td></tr></table></figure>
+<p>这条命令就是创建Python项目的命令了。创建之后会在当前路径下生成一个project路径。</p>
+<p>然后执行下列命令，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd gjyPython</div><div class="line">ls</div></pre></td></tr></table></figure>
+<p>我们可以看到这样两个东西。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gjyPython/  manage.py</div></pre></td></tr></table></figure>
+<p>其中gjyPython就是我们这个项目的主体了，它本身是个App，也是整个Project基石，因为这个与项目同名的App里包含着整个Project的基础配置。</p>
+<p>而manage.py文件是整个项目的</p>
+<h4 id="A-new-Django-app"><a href="#A-new-Django-app" class="headerlink" title="A new Django app"></a>A new Django app</h4><p>我们依然在刚才创建好的Project路径内，输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ django-admin startapp newApp</div></pre></td></tr></table></figure>
+<p>然后我们再看一下当前路径下的内容，发现多了一个目录，而这个目录就是我们创建的App了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">gjyPython/  manage.py  newApp/</div></pre></td></tr></table></figure></p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><p>安装好项目之后我们就可以尝试着启动项目了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py runserver localhost:8000</div></pre></td></tr></table></figure>
+<p>然后我们在浏览器中输入<code>localhost:8000</code>之后，就可以看到我们的欢迎页面了。</p>
+<p><img src="/images/post/20170415/itwork.png" alt="ItWork"></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这就是基本的简单安装了。</p>
+<p>其实本来想写更多，但是我困了…所以我们下期再见~</p>
+<h2 id="课后小练习"><a href="#课后小练习" class="headerlink" title="课后小练习"></a>课后小练习</h2><ol>
+<li>创建一个自己的Django项目，然后让它成功的运行起来</li>
+<li>给自己的Project创建个App玩玩儿</li>
+<li>尝试创建一个欢迎页面</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Django/" rel="tag"># Django</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/GJY特别教程/" rel="tag"># GJY特别教程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/07/一个Python调用Shell时遇到的问题/" rel="next" title="一个Python调用Shell时遇到的问题">
+                <i class="fa fa-chevron-left"></i> 一个Python调用Shell时遇到的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/15/Django教程1-安装与基本结构/"
+           data-title="Django傻瓜教程第一章：废话与基本安装与运行" data-url="/2017/04/15/Django教程1-安装与基本结构/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Porson" />
+          <p class="site-author-name" itemprop="name">Porson</p>
+          <p class="site-description motion-element" itemprop="description">DBA/Python程序员/开源爱好者</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/porson" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BEFORE-ALL"><span class="nav-number">1.</span> <span class="nav-text">BEFORE ALL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHAT-IS-DJANGO-AND-HOW-SHOULD-I-USE-IT"><span class="nav-number">2.</span> <span class="nav-text">WHAT IS DJANGO AND HOW SHOULD I USE IT?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django-Say-Hello"><span class="nav-number">2.1.</span> <span class="nav-text">Django Say Hello</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django-Install"><span class="nav-number">2.2.</span> <span class="nav-text">Django Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-First-Django-Project"><span class="nav-number">2.3.</span> <span class="nav-text">My First Django Project</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-new-Django-project"><span class="nav-number">2.3.1.</span> <span class="nav-text">A new Django project</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-new-Django-app"><span class="nav-number">2.3.2.</span> <span class="nav-text">A new Django app</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-World"><span class="nav-number">2.4.</span> <span class="nav-text">Hello World</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课后小练习"><span class="nav-number">4.</span> <span class="nav-text">课后小练习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  <span class="author" itemprop="copyrightHolder">Create by Porson </span>
+    <span class="with-love">
+    <i class="fa fa-copyright"></i>
+  </span>
+   2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  All copyright
+
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lpx"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
