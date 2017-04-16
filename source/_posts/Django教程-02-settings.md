@@ -1,6 +1,6 @@
 ---
-title:   [Django教程]02-Settings详解
-date:   2017-04-16 10:26:06
+title: Django教程02-Settings详解
+date: 2017-04-16 10:26:06
 tags: 
  - Python
  - Django
