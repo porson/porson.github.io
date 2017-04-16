@@ -1,10 +1,10 @@
 ---
-title: '[Django教程]02-Settings.py详解'
+title: [Django教程]02-Settings.py详解
 date: 2017-04-16 10:26:06
 tags: 
-- Python
-- Django
-- GJY特别教程
+ - Python
+ - Django
+ - GJY特别教程
 ---
 
 ## 上期回顾以及开篇
