@@ -258,7 +258,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/2017/04/15/Django教程1-安装与基本结构/">
+  <link itemprop="mainEntityOfPage" href="/2017/04/16/“-Django教程-02-基本运行逻辑与开始一个新项目吧”/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Porson">
@@ -283,8 +283,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/Django教程1-安装与基本结构/" itemprop="url">
-                  Django傻瓜教程第一章：废话与基本安装与运行
+                <a class="post-title-link" href="/2017/04/16/“-Django教程-02-基本运行逻辑与开始一个新项目吧”/" itemprop="url">
+                  [Django教程]02-Settings.py详解
                 </a>
               
             
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-15T18:35:22+08:00">
-                2017-04-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-16T10:26:06+08:00">
+                2017-04-16
               </time>
             
 
@@ -319,8 +319,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/15/Django教程1-安装与基本结构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/15/Django教程1-安装与基本结构/" itemprop="commentCount"></span>
+                <a href="/2017/04/16/“-Django教程-02-基本运行逻辑与开始一个新项目吧”/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/16/“-Django教程-02-基本运行逻辑与开始一个新项目吧”/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -347,15 +347,65 @@
 
       
         
-          <blockquote class="blockquote-center"><p>​    知识要传递给下一代，新手司机带个小胸弟一起上路。</p>
+          
+            <h2 id="上期回顾以及开篇"><a href="#上期回顾以及开篇" class="headerlink" title="上期回顾以及开篇"></a>上期回顾以及开篇</h2><p>上一篇大概的介绍了一下Django是个什么东西，以及怎么安装怎么运行。</p>
+<p>嗯…几乎等于什么都没讲。</p>
+<p>主要的命令有两个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">django-admin startproject</div><div class="line">django-admin startapp</div></pre></td></tr></table></figure>
+<p>一个是用来创建项目的，一个是用来创建App的。</p>
+<p>Django中的App可以理解为功能模块。每一个App都有自己独立的功能，App与App之间可以互相依赖也可以不依赖。一个完整的项目就是由多个这种App来组合的。</p>
+<p>而不同的项目之间也可以痛快App的迁移来做到搭积木式的快速开发。</p>
+<p>从这一期开始我们来研究一下，一个Django项目都是由什么组成的，每一个部分的作用是什么。</p>
+<p>今天的主角是<strong>settings.py</strong></p>
+<h2 id="Project本身"><a href="#Project本身" class="headerlink" title="Project本身"></a>Project本身</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">__init__.py   settings.py   urls.py   wsgi.py</div></pre></td></tr></table></figure>
+<p>在开始之前，有一个小点要提一下。</p>
+<p>进入到上一期建立好的项目中的同名App里，我们可以看到这样几个文件。其它的或多或少你都知道是干啥用的，但是除了一个文件<code>__init__.py</code>。<del>wsgi以后会说</del></p>
+<h3 id="init-py"><a href="#init-py" class="headerlink" title="__init__.py"></a>__init__.py</h3><p>其中<code>__init__.py</code>是Python包内必须要有的文件，没有这个文件，Python不会将该路径认为是可引用包。也就是说，没有它，你的这个包（文件夹/目录）在Python当中import是会报错的。</p>
+<p>通常没有特殊要求的时候，这个文件一般都是空的。如果你需要定义一些包函数或包属性。</p>
+<p>就比如说我们平时使用的<code>import XX *</code>这个例子。如果我们并不想要把所有的文件都可以引用，但是在引用的时候又不想一个一个去输入import的文件名，那么就可以利用<code>__init__.py</code>文件中通过变量<code>__all__</code>来定义import *的时候会import哪些文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">__all__ = [<span class="string">"Module1"</span>, <span class="string">"Module2"</span>, <span class="string">"subPackage1"</span>, <span class="string">"subPackage2"</span>]</div></pre></td></tr></table></figure>
+<p>以后无特殊情况，这个文件将不会过多描述。</p>
+<h3 id="settings-py"><a href="#settings-py" class="headerlink" title="settings.py"></a>settings.py</h3><p>今天这一篇的主角就厉害了。</p>
+<p>这个.py文件可以说是整个Django Project的核心，DJango的配置就是从这里配置的。</p>
+<p>去掉注释，我们一起来看一下这里面都是些什么玩意儿：</p>
+<h4 id="BASE-DIR"><a href="#BASE-DIR" class="headerlink" title="BASE_DIR"></a>BASE_DIR</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</div><div class="line"><span class="comment"># 这个变量代表的是整个项目的根路径</span></div></pre></td></tr></table></figure>
+<p>__file__这个属性可以获取自身文件的文件名</p>
+<p>os.path.abspath()这个函数可以获取文件的路径，而且是真实路径，而不是调用者的路径（不懂私聊我或者查一下）。</p>
+<p>os.path.dirname可以获取上级路径，然后几经嵌套，就可以获取到项目的根路径了。</p>
+<h4 id="ALLOWED-HOSTS"><a href="#ALLOWED-HOSTS" class="headerlink" title="ALLOWED_HOSTS"></a>ALLOWED_HOSTS</h4><blockquote>
+<p>ALLOWED_HOSTS 允许你设置哪些域名可以访问，即使在 Apache 或 Nginx 等中绑定了，这里不允许的话，也是不能访问的。</p>
+<p>当 <strong>DEBUG=False </strong>时，这个为必填项，如果不想输入，可以用 <strong>ALLOW_HOSTS = [‘*‘]</strong> 来允许所有的。</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Django教程1-安装与基本结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h4 id="INSTALLED-APPS"><a href="#INSTALLED-APPS" class="headerlink" title="INSTALLED_APPS"></a>INSTALLED_APPS</h4><p>接下来是一个比较常用的设置项</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = [</div><div class="line">    <span class="string">'django.contrib.admin'</span>,</div><div class="line">    <span class="string">'django.contrib.auth'</span>,</div><div class="line">    <span class="string">'django.contrib.contenttypes'</span>,</div><div class="line">    <span class="string">'django.contrib.sessions'</span>,</div><div class="line">    <span class="string">'django.contrib.messages'</span>,</div><div class="line">    <span class="string">'django.contrib.staticfiles'</span>,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>有过使用经验的人都会知道，如果我们要创建一个App，要把App注册到这个里面。那么这是为什么呢？为什么有时候不注册也是可以使用的呢？下面我们来一个一个的回答：</p>
+<ol>
+<li><p>为什么要注册<br>新建的 app 如果不加到 INSTALL_APPS 中的话，django 就不能自动找到app中的<strong>模板文件</strong>(app-name/templates/下的文件)和<strong>静态文件</strong>(app-name/static/中的文件)<br>也就是说，如果你没有对它进行设置，你的App将无法提供访问。</p>
+</li>
+<li><p>为什么不注册也可以使用<br>我曾经就有过这种情况，创建了无数python包在一个项目下，也不注册app，直接互相import，并没有遇到什么问题。其实这个问题与App的理解有关，App是独立的，它拥有自己的urls，拥有自己的Templates和static文件，如果把所有的app的模板文件放到一个路径下，从app的概念来讲，这压根就是一个大app。<br>也就是说，不注册就可以使用的，是因为你创建的不是app，根本就没用利用到app提供的特性。</p>
+</li>
+</ol>
+<h4 id="MIDDLEWARE"><a href="#MIDDLEWARE" class="headerlink" title="MIDDLEWARE"></a>MIDDLEWARE</h4><p>接下来是高级的中间件，一般中小型项目对这个的使用率不高。可以理解为一个层级更底层的App，消息在到达views之前会先通过中间件。可以做一些低层次的消息转发处理。比如实现一个filter。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">MIDDLEWARE = [</div><div class="line">    &apos;django.middleware.security.SecurityMiddleware&apos;,</div><div class="line">    &apos;django.contrib.sessions.middleware.SessionMiddleware&apos;,</div><div class="line">    &apos;django.middleware.common.CommonMiddleware&apos;,</div><div class="line">    &apos;django.middleware.csrf.CsrfViewMiddleware&apos;,</div><div class="line">    &apos;django.contrib.auth.middleware.AuthenticationMiddleware&apos;,</div><div class="line">    &apos;django.contrib.messages.middleware.MessageMiddleware&apos;,</div><div class="line">    &apos;django.middleware.clickjacking.XFrameOptionsMiddleware&apos;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>具体详细用法可以参考：<a href="http://www.ziqiangxuetang.com/django/django-middleware.html" target="_blank" rel="external">自强学堂-Django中间件</a></p>
+<h4 id="ROOT-URLCONF"><a href="#ROOT-URLCONF" class="headerlink" title="ROOT_URLCONF"></a>ROOT_URLCONF</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ROOT_URLCONF = <span class="string">'gjyPython.urls'</span></div></pre></td></tr></table></figure>
+<p>在这里指定根路由文件。Django当中的路由是一层一层的，但是总要有一个根路由来做总分配。这里就是设置根路由文件名称的。</p>
+<h4 id="TEMPLATES"><a href="#TEMPLATES" class="headerlink" title="TEMPLATES"></a>TEMPLATES</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">TEMPLATES = [</div><div class="line">    &#123;</div><div class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</div><div class="line">        <span class="string">'DIRS'</span>: [],</div><div class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,</div><div class="line">        <span class="string">'OPTIONS'</span>: &#123;</div><div class="line">            <span class="string">'context_processors'</span>: [</div><div class="line">                <span class="string">'django.template.context_processors.debug'</span>,</div><div class="line">                <span class="string">'django.template.context_processors.request'</span>,</div><div class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</div><div class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</div><div class="line">            ],</div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>这个参数很重要，但是也基本不需要动。属于一次配置享受终身的那种。</p>
+<p>关键点只有一个：DIRS</p>
+<p>这个key的value是一个list，里面放的是所有templates的路径。如果不配置，<strong>会默认的去每个注册了的App下的Templates路径里查找</strong>。如果配置了，<strong>就必须把每一个App都配全</strong>。不然找不到。</p>
+<p>还有一个需要注意的地方：</p>
+<p>直接使用命令行django-admin starproject创建的项目，这个地方是空的，没设置的。</p>
+<p>如果使用IDE比如Pycharm创建的，这里的value是<code>os.path.join(BASE_DIR, &#39;templates&#39;)</code>，意思就是你的项目根路径后面再跟了一个templates，也就是指向你项目根路径下的templates文件。</p>
+<p>这个时候如果你还是把模板文件放到app下的templates里，那么是会找不到的。</p>
+<h4 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h4><p>Django的静态文件是一个比较复杂的东西。开发模式与生产部署的时候还不太一样。具体的设置也比较复杂，我也只研究过一点点皮毛。所以直接把高人教程拉过来给你参考一下。</p>
+<p><a href="http://www.ziqiangxuetang.com/django/django-static-files.html" target="_blank" rel="external">自强学堂-Django静态文件</a></p>
+<p>关于配置文件还有一些不常用的配置我没有讲到，如果有兴趣，可以看一下下面这个链接。我也是跟着这个学的+自己的一些东西。</p>
+<p><a href="http://www.ziqiangxuetang.com/django/django-settings.html" target="_blank" rel="external">自强学堂-Django配置</a></p>
+<h3 id="课后练习"><a href="#课后练习" class="headerlink" title="课后练习"></a>课后练习</h3><p>​    这章没什么好练习的。看明白，理解了就可以。</p>
+<p>以上。</p>
+
+          
         
       
     </div>
@@ -1643,7 +1693,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
