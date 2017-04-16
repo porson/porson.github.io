@@ -1,6 +1,6 @@
 ---
 title: [Django教程]01-废话与基本安装与运行
-date: 2017-04-15 18:35:22
+date:  2017-04-15 18:35:22
 tags: 
  - Django
  - python

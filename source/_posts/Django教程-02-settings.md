@@ -1,11 +1,19 @@
 ---
-title: [Django教程]02-Settings.py详解
-date: 2017-04-16 10:26:06
+title:   [Django教程]02-Settings详解
+date:   2017-04-16 10:26:06
 tags: 
  - Python
  - Django
  - GJY特别教程
 ---
+
+{% cq %}
+
+​	周末没啥事，一块儿来看看settings里面到底写了些什么。
+
+{% endcq %}
+
+<!-- more -->
 
 ## 上期回顾以及开篇
 
